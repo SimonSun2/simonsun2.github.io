@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Racing | 深国交RC社团</title>
+    <!-- 引入Tailwind CSS（简化样式开发） -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // 赛车主题配色：红黑为主，灰色为辅
+                        primary: '#E63946', // 主色（赛车红）
+                        secondary: '#1D3557', // 辅助色（深海蓝）
+                        dark: '#121212', // 深色背景
+                        light: '#F1FAEE', // 浅色文本
+                    },
+                    fontFamily: {
+                        racing: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+    <!-- 引入谷歌字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-racing bg-dark text-light overflow-x-hidden">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-dark/80 bg-blur">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <i class="fa-solid fa-car-side text-primary text-2xl"></i>
+                <span class="text-xl font-bold">Apex Racing</span>
+            </a>
+            <!-- 桌面端导航 -->
+            <div class="hidden md:flex gap-8">
+                <a href="#home" class="hover:text-primary transition-colors">首页</a>
+                <a href="#about" class="hover:text-primary transition-colors">关于我们</a>
+                <a href="#events" class="hover:text-primary transition-colors">赛事活动</a>
+                <a href="#members" class="hover:text-primary transition-colors">核心成员</a>
+                <a href="#join" class="hover:text-primary transition-colors">加入我们</a>
+                <a href="#contact" class="hover:text-primary transition-colors">联系我们</a>
+            </div>
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-dark/95 bg-blur w-full">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+                <a href="#home" class="py-2 hover:text-primary transition-colors">首页</a>
+                <a href="#about" class="py-2 hover:text-primary transition-colors">关于我们</a>
+                <a href="#events" class="py-2 hover:text-primary transition-colors">赛事活动</a>
+                <a href="#members" class="py-2 hover:text-primary transition-colors">核心成员</a>
+                <a href="#join" class="py-2 hover:text-primary transition-colors">加入我们</a>
+                <a href="#contact" class="py-2 hover:text-primary transition-colors">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页Hero区 -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-16">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1072/1920/1080" alt="赛车背景" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/50 to-dark"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold mb-4 text-shadow">
+                Apex <span class="text-primary">Racing</span>
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] mb-8 max-w-2xl mx-auto">
+                深国交RC赛车社团 | 速度与激情，热爱与梦想
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#join" class="px-8 py-3 bg-primary text-light rounded-full font-semibold hover-scale">
+                    加入我们
+                </a>
+                <a href="#events" class="px-8 py-3 border border-primary text-primary rounded-full font-semibold hover-scale">
+                    查看赛事
+                </a>
+            </div>
+        </div>
+        <!-- 向下滚动按钮 -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-light text-2xl">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 bg-secondary/20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">关于我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="hover-scale">
+                    <img src="https://picsum.photos/id/1068/800/600" alt="社团活动" class="rounded-lg w-full shadow-lg">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-primary">深国交Apex Racing RC社团</h3>
+                    <p class="mb-4 text-lg">
+                        我们是深圳国际交流学院（深国交）的RC（遥控赛车）爱好者社团，成立于202X年，致力于为校内热爱赛车的同学提供交流、学习、竞技的平台。
+                    </p>
+                    <p class="mb-4 text-lg">
+                        社团定期举办校内RC赛车比赛、技术交流分享会、赛车模型改装教学等活动，不仅培养同学们的动手能力和竞技精神，更传递对赛车文化的热爱。
+                    </p>
+                    <p class="mb-6 text-lg">
+                        我们的宗旨：以车会友，追求速度，突破自我，享受竞技的乐趣！
+                    </p>
+                    <div class="flex gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">50+</div>
+                            <div>社团成员</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">10+</div>
+                            <div>年度赛事</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">5+</div>
+                            <div>校外合作</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 赛事活动 -->
+    <section id="events" class="py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">赛事活动</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="mt-4 text-lg max-w-2xl mx-auto">
+                    记录每一次的速度对决，见证每一个精彩瞬间
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 赛事卡片1 -->
+                <div class="bg-secondary/30 rounded-lg overflow-hidden shadow-lg hover-scale">
+                    <img src="https://picsum.photos/id/1071/600/400" alt="春季校内赛" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="bg-primary/80 text-light px-3 py-1 rounded-full text-sm">已结束</span>
+                            <span class="text-gray-400">2026.03.15</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">2026春季校内RC竞速赛</h3>
+                        <p class="text-gray-300 mb-4">
+                            本次赛事设置了1/10平跑组和越野组，共有32名选手参赛，最终高二X班XXX以1分20秒的成绩夺得平跑组冠军。
+                        </p>
+                        <a href="#" class="text-primary hover:underline flex items-center gap-1">
+                            查看详情 <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 赛事卡片2 -->
+                <div class="bg-secondary/30 rounded-lg overflow-hidden shadow-lg hover-scale">
+                    <img src="https://picsum.photos/id/1073/600/400" alt="改装分享会" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="bg-green-600/80 text-light px-3 py-1 rounded-full text-sm">进行中</span>
+                            <span class="text-gray-400">2026.04.01-04.30</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">RC赛车改装技术分享月</h3>
+                        <p class="text-gray-300 mb-4">
+                            每周五下午社团活动室，由资深成员分享电机、舵机、轮胎等改装技巧，新手可免费领取改装入门手册。
+                        </p>
+                        <a href="#" class="text-primary hover:underline flex items-center gap-1">
+                            查看详情 <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 赛事卡片3 -->
+                <div class="bg-secondary/30 rounded-lg overflow-hidden shadow-lg hover-scale">
+                    <img src="https://picsum.photos/id/1074/600/400" alt="校际友谊赛" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="bg-blue-600/80 text-light px-3 py-1 rounded-full text-sm">即将开始</span>
+                            <span class="text-gray-400">2026.05.20</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">深国交VS深外RC校际友谊赛</h3>
+                        <p class="text-gray-300 mb-4">
+                            与深圳外国语学校RC社团联合举办的校际友谊赛，设置团队赛和个人赛，欢迎同学们报名参赛或观赛。
+                        </p>
+                        <a href="#" class="text-primary hover:underline flex items-center gap-1">
+                            查看详情 <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 更多赛事按钮 -->
+            <div class="text-center mt-12">
+                <a href="#" class="px-8 py-3 border border-primary text-primary rounded-full font-semibold hover-scale inline-block">
+                    查看更多赛事
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心成员 -->
+    <section id="members" class="py-20 bg-secondary/20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">核心成员</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 成员1（团长） -->
+                <div class="bg-dark rounded-lg overflow-hidden shadow-lg hover-scale text-center">
+                    <img src="https://picsum.photos/id/1005/400/400" alt="团长" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">XXX（团长）</h3>
+                        <p class="text-primary mb-3">高三 | 竞速组负责人</p>
+                        <p class="text-gray-300 mb-4">
+                            3年RC赛车经验，擅长平跑赛车改装与调校，曾获深圳市RC青少年赛冠军。
+                        </p>
+                        <div class="flex justify-center gap-4">
+                            <a href="#" class="text-light hover:text-primary transition-colors">
+                                <i class="fa-brands fa-wechat text-xl"></i>
+                            </a>
+                            <a href="#" class="text-light hover:text-primary transition-colors">
+                                <i class="fa-brands fa-instagram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 成员2 -->
+                <div class="bg-dark rounded-lg overflow-hidden shadow-lg hover-scale text-center">
+                    <img src="https://picsum.photos/id/1006/400/400" alt="副团长" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">XXX（副团长）</h3>
+                        <p class="text-primary mb-3">高二 | 后勤组负责人</p>
+                        <p class="text-gray-300 mb-4">
+                            负责社团活动策划与物资管理，擅长越野赛车维护，耐心细致，是社团的“大管家”。
+                        </p>
+                        <div class="flex justify-center gap-4">
+                            <a href="#" class="text-light hover:text-primary transition-colors">
+                                <i class="fa-brands fa-wechat text-xl"></i>
+                            </a>
+                            <a href="#" class="text-light hover:text-primary transition-colors">
+                                <i class="fa-brands fa-instagram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 成员3 -->
+                <div class="bg-dark rounded-lg overflow-hidden shadow-lg hover-scale text-center">
+                    <img src="https://picsum.photos/id/1012/400/400" alt="技术顾问" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">XXX（技术顾问）</h3>
+                        <p class="text-primary mb-3">高三 | 改装技术指导</p>
+                        <p class="text-gray-300 mb-4">
+                            机械工程爱好者，擅长RC赛车动力系统改装，为社团成员提供技术支持和教学。
+                        </p>
+                        <div class="flex justify-center gap-4">
+                            <a href="#" class="text-light hover:text-primary transition-colors">
+                                <i class="fa-brands fa-wechat text-xl"></i>
+                            </a>
+                            <a href="#" class="text-light hover:text-primary transition-colors">
+                                <i class="fa-brands fa-instagram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 成员4 -->
+                <div class="bg-dark rounded-lg overflow-hidden shadow-lg hover-scale text-center">
+                    <img src="https://picsum.photos/id/1014/400/400" alt="宣传负责人" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">XXX（宣传负责人）</h3>
+                        <p class="text-primary mb-3">高二 | 社团宣传</p>
+                        <p class="text-gray-300 mb-4">
+                            负责社团新媒体运营、赛事摄影与宣传物料制作，记录社团的每一个精彩瞬间。
+                        </p>
+                        <div class="flex justify-center gap-4">
+                            <a href="#" class="text-light hover:text-primary transition-colors">
+                                <i class="fa-brands fa-wechat text-xl"></i>
+                            </a>
+                            <a href="#" class="text-light hover:text-primary transition-colors">
+                                <i class="fa-brands fa-instagram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 加入我们 -->
+    <section id="join" class="py-20 bg-dark relative">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1070/1920/1080" alt="加入我们背景" class="w-full h-full object-cover opacity-20">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">加入我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="mt-4 text-lg max-w-2xl mx-auto">
+                    无论你是RC赛车老手，还是零基础的新手，只要你热爱赛车，我们都欢迎你的加入！
+                </p>
+            </div>
+            <div class="max-w-3xl mx-auto bg-secondary/40 rounded-lg p-8 shadow-xl">
+                <form id="joinForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block mb-2 text-lg">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 bg-dark/80 border border-gray-600 rounded-lg focus:outline-none focus:border-primary" placeholder="请输入你的姓名">
+                        </div>
+                        <div>
+                            <label for="grade" class="block mb-2 text-lg">年级/班级</label>
+                            <input type="text" id="grade" class="w-full px-4 py-3 bg-dark/80 border border-gray-600 rounded-lg focus:outline-none focus:border-primary" placeholder="如：高一G1班">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="contact" class="block mb-2 text-lg">联系方式</label>
+                        <input type="text" id="contact" class="w-full px-4 py-3 bg-dark/80 border border-gray-600 rounded-lg focus:outline-none focus:border-primary" placeholder="微信/电话">
+                    </div>
+                    <div>
+                        <label for="experience" class="block mb-2 text-lg">RC赛车经验</label>
+                        <select id="experience" class="w-full px-4 py-3 bg-dark/80 border border-gray-600 rounded-lg focus:outline-none focus:border-primary">
+                            <option value="">请选择</option>
+                            <option value="0">零基础</option>
+                            <option value="1">入门级（1年以内）</option>
+                            <option value="2">进阶级（1-3年）</option>
+                            <option value="3">资深级（3年以上）</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="reason" class="block mb-2 text-lg">加入理由/期望</label>
+                        <textarea id="reason" rows="4" class="w-full px-4 py-3 bg-dark/80 border border-gray-600 rounded-lg focus:outline-none focus:border-primary" placeholder="请简述你想加入社团的原因或对社团的期望"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="px-8 py-3 bg-primary text-light rounded-full font-semibold hover-scale text-lg">
+                            提交申请
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-secondary/20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">联系我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-primary">联系方式</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-location-dot text-primary text-2xl w-8 text-center"></i>
+                            <div>
+                                <h4 class="text-lg font-medium">社团活动室</h4>
+                                <p class="text-gray-300">深国交X号楼X层X室</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-clock text-primary text-2xl w-8 text-center"></i>
+                            <div>
+                                <h4 class="text-lg font-medium">活动时间</h4>
+                                <p class="text-gray-300">每周五下午 16:00-18:00</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-envelope text-primary text-2xl w-8 text-center"></i>
+                            <div>
+                                <h4 class="text-lg font-medium">邮箱</h4>
+                                <p class="text-gray-300">apexracing@sics.net</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-phone text-primary text-2xl w-8 text-center"></i>
+                            <div>
+                                <h4 class="text-lg font-medium">团长电话</h4>
+                                <p class="text-gray-300">138XXXX8888</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="text-lg font-medium mb-4">关注我们</h4>
+                        <div class="flex gap-6">
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors">
+                                <i class="fa-brands fa-weixin text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors">
+                                <i class="fa-brands fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors">
+                                <i class="fa-brands fa-tiktok text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- 这里可以替换为真实的社团活动室地图 -->
+                    <div class="rounded-lg overflow-hidden shadow-lg hover-scale">
+                        <img src="https://picsum.photos/id/1019/800/600" alt="社团位置地图" class="w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark py-8 border-t border-primary/30">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                        <i class="fa-solid fa-car-side text-primary text-2xl"></i>
+                        <span class="text-xl font-bold">Apex Racing</span>
+                    </div>
+                    <p class="text-gray-400 mt-2 text-center md:text-left">深国交RC赛车社团 © 2026 版权所有</p>
+                </div>
+                <div class="text-gray-400">
+                    <p>设计与维护：Apex Racing 宣传组</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-lg');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+
+        // 移动端菜单
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // 切换菜单图标
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    mobileMenu.classList.add('hidden');
+                    const icon = menuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // 表单提交
+        const joinForm = document.getElementById('joinForm');
+        joinForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // 简单表单验证
+            const name = document.getElementById('name').value;
+            const grade = document.getElementById('grade').value;
+            const contact = document.getElementById('contact').value;
+            
+            if (!name || !grade || !contact) {
+                alert('请填写必填字段（姓名、年级/班级、联系方式）！');
+                return;
+            }
+            
+            // 模拟提交成功
+            alert('申请提交成功！我们会尽快联系你～');
+            joinForm.reset();
+        });
+    </script>
+</body>
+</html>
