@@ -14,11 +14,11 @@
             theme: {
                 extend: {
                     colors: {
-                        // 赛车主题配色：红黑为主，灰色为辅
-                        primary: '#E63946', // 主色（赛车红）
-                        secondary: '#1D3557', // 辅助色（深海蓝）
-                        dark: '#121212', // 深色背景
-                        light: '#F1FAEE', // 浅色文本
+                        // 黑金主题配色：黑色为主，金色为辅
+                        primary: '#B8860B', // 主色（深金色）
+                        secondary: '#1A1A1A', // 辅助色（深灰色）
+                        dark: '#0A0A0A', // 深色背景
+                        light: '#F5F5F5', // 浅色文本
                     },
                     fontFamily: {
                         racing: ['Montserrat', 'sans-serif'],
@@ -32,6 +32,9 @@
         @layer utilities {
             .text-shadow {
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .text-gold-glow {
+                text-shadow: 0 0 10px rgba(184, 134, 11, 0.5), 0 0 20px rgba(184, 134, 11, 0.3);
             }
             .bg-blur {
                 backdrop-filter: blur(8px);
@@ -92,7 +95,7 @@
             <div class="absolute inset-0 bg-gradient-to-b from-dark/50 to-dark"></div>
         </div>
         <div class="container mx-auto px-4 z-10 text-center">
-            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold mb-4 text-shadow">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold mb-4 text-shadow text-gold-glow">
                 Apex <span class="text-primary">Racing</span>
             </h1>
             <p class="text-[clamp(1rem,3vw,1.5rem)] mb-8 max-w-2xl mx-auto">
