@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 | Apex Racing</title>
+    <meta name="description" content="联系Apex Racing。一般咨询、商务合作、媒体采访，选择对应渠道，我们将在24小时内回复。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .page-hero {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url('images/team-photo.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+        }
+        
+        .page-hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .page-hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            margin-bottom: 16px;
+        }
+        
+        .page-hero p {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+        }
+        
+        /* 联系渠道 */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .contact-card {
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-icon i {
+            font-size: 36px;
+            color: var(--color-accent-gold);
+        }
+        
+        .contact-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .contact-email {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--color-accent-gold);
+            margin-bottom: 16px;
+            word-break: break-all;
+        }
+        
+        .contact-card p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .contact-card .btn {
+            padding: 10px 20px;
+            font-size: 12px;
+        }
+        
+        /* 社交媒体 */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .social-card {
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-5px);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .social-card i {
+            font-size: 36px;
+            color: var(--color-accent-gold);
+            margin-bottom: 12px;
+        }
+        
+        .social-card h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        
+        .social-card span {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+        }
+        
+        /* 地址信息 */
+        .address-card {
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .address-card i {
+            font-size: 48px;
+            color: var(--color-accent-gold);
+            margin-bottom: 20px;
+        }
+        
+        .address-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .address-card p {
+            color: var(--color-text-secondary);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 1024px) {
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-car-side logo-icon"></i>
+                <span class="logo-text">APEX <span>RACING</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="cars/apex-04.html">赛车展示</a></li>
+                <li><a href="tech/index.html">技术中心</a></li>
+                <li><a href="racing/index.html">赛事实绩</a></li>
+                <li><a href="team.html">核心成员</a></li>
+                <li><a href="join.html" class="btn btn-primary nav-cta">加入我们</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="cars/apex-04.html">赛车展示</a>
+        <a href="tech/index.html">技术中心</a>
+        <a href="racing/index.html">赛事实绩</a>
+        <a href="team.html">核心成员</a>
+        <a href="join.html">加入我们</a>
+    </div>
+
+    <!-- 页面Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>联系我们</h1>
+            <p>期待与你的交流</p>
+        </div>
+    </section>
+
+    <!-- 联系渠道 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">CONTACT CHANNELS</span>
+                <h2 class="section-title">选择对应渠道</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="contact-cards">
+                <div class="contact-card reveal">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>一般咨询</h3>
+                    <p class="contact-email">info@apexracing.com</p>
+                    <p>社团活动、加入咨询、其他问题</p>
+                    <button class="btn btn-outline" onclick="copyToClipboard('info@apexracing.com', this)">复制邮箱</button>
+                </div>
+                <div class="contact-card reveal">
+                    <div class="contact-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>商务合作</h3>
+                    <p class="contact-email">s23393.sun@stu.scie.com.cn</p>
+                    <p>赞助洽谈、品牌合作、资源对接</p>
+                    <button class="btn btn-outline" onclick="copyToClipboard('s23393.sun@stu.scie.com.cn', this)">复制邮箱</button>
+                </div>
+                <div class="contact-card reveal">
+                    <div class="contact-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>媒体采访</h3>
+                    <p class="contact-email">media@apexracing.com</p>
+                    <p>采访邀约、报道合作、内容授权</p>
+                    <button class="btn btn-outline" onclick="copyToClipboard('media@apexracing.com', this)">复制邮箱</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 社交媒体 -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">SOCIAL MEDIA</span>
+                <h2 class="section-title">关注我们</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="social-grid">
+                <a href="#" class="social-card reveal">
+                    <i class="fab fa-weixin"></i>
+                    <h4>微信公众号</h4>
+                    <span>Apex Racing深国交</span>
+                </a>
+                <a href="#" class="social-card reveal">
+                    <i class="fab fa-instagram"></i>
+                    <h4>Instagram</h4>
+                    <span>@apex_racing_scie</span>
+                </a>
+                <a href="#" class="social-card reveal">
+                    <i class="fab fa-bilibili"></i>
+                    <h4>B站</h4>
+                    <span>ApexRacing官方</span>
+                </a>
+                <a href="#" class="social-card reveal">
+                    <i class="fas fa-book-open"></i>
+                    <h4>小红书</h4>
+                    <span>Apex Racing</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 地址信息 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">LOCATION</span>
+                <h2 class="section-title">我们的位置</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="address-card reveal">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>深圳国际交流书院</h3>
+                <p>深圳市福田区安托山六路3号<br>Apex Racing 社团活动室</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-text">APEX <span>RACING</span></div>
+                    <p>Precision, Partnership, Perseverance.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-bilibili"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-section">
+                    <h4 class="footer-title">快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="sponsors.html">赞助合作</a></li>
+                        <li><a href="join.html">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-section">
+                    <h4 class="footer-title">联系我们</h4>
+                    <p><i class="fas fa-envelope"></i> contact@apexracing.com</p>
+                    <p><i class="fas fa-globe"></i> <a href="https://apexracing-scie.github.io/" target="_blank">https://apexracing-scie.github.io/</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> 深圳国际交流书院</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Apex Racing. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '已复制！';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('复制失败:', err);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赞助合作 | Apex Racing - 与我们一起驰骋</title>
+    <meta name="description" content="成为Apex Racing的合作伙伴，支持下一代工程师的成长。基础支持¥1000起，核心伙伴¥3000，战略合作定制。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .page-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url('images/hero-racing.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+        }
+        
+        .page-hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .page-hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            margin-bottom: 16px;
+        }
+        
+        .page-hero p {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* 价值点 */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .value-icon i {
+            font-size: 36px;
+            color: var(--color-accent-gold);
+        }
+        
+        .value-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .value-card p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* 赞助方案 */
+        .sponsor-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .sponsor-card {
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+        
+        .sponsor-card.featured {
+            border-color: var(--color-accent-gold);
+            transform: scale(1.05);
+            position: relative;
+        }
+        
+        .sponsor-card.featured::before {
+            content: '推荐';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 16px;
+            background: var(--color-accent-gold);
+            color: var(--color-bg-primary);
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 12px;
+        }
+        
+        .sponsor-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .sponsor-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+        
+        .sponsor-tier {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .sponsor-price {
+            font-family: var(--font-mono);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--color-accent-gold);
+            margin-bottom: 30px;
+        }
+        
+        .sponsor-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        
+        .sponsor-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sponsor-features li i {
+            color: var(--color-accent-gold);
+        }
+        
+        /* 合作流程 */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 60px;
+            right: 60px;
+            height: 2px;
+            background: var(--color-accent-gold);
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+            flex: 1;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--color-accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-bg-primary);
+            margin: 0 auto 16px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .step-desc {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+        
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+        
+        .faq-question h4 {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .faq-icon {
+            color: var(--color-accent-gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 24px 20px;
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 1024px) {
+            .value-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .sponsor-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .sponsor-card.featured {
+                transform: none;
+            }
+            
+            .sponsor-card.featured:hover {
+                transform: translateY(-8px);
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-car-side logo-icon"></i>
+                <span class="logo-text">APEX <span>RACING</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="cars/apex-04.html">赛车展示</a></li>
+                <li><a href="tech/index.html">技术中心</a></li>
+                <li><a href="racing/index.html">赛事实绩</a></li>
+                <li><a href="team.html">核心成员</a></li>
+                <li><a href="join.html" class="btn btn-primary nav-cta">加入我们</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="cars/apex-04.html">赛车展示</a>
+        <a href="tech/index.html">技术中心</a>
+        <a href="racing/index.html">赛事实绩</a>
+        <a href="team.html">核心成员</a>
+        <a href="join.html">加入我们</a>
+    </div>
+
+    <!-- 页面Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>与我们一起驰骋</h1>
+            <p>您的支持是下一代工程师成长的基石。我们承诺以透明的财务、持续的曝光和优异的联赛成绩回报您的信任。</p>
+        </div>
+    </section>
+
+    <!-- 价值点 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">WHY SPONSOR US</span>
+                <h2 class="section-title">合作价值</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="value-grid">
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>教育价值</h3>
+                    <p>支持实践工程教育，培养下一代工程师</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>品牌曝光</h3>
+                    <p>精准触达学生群体和教育社群</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>人才储备</h3>
+                    <p>接触未来工程师，建立人才 pipeline</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>社区影响</h3>
+                    <p>支持STEM教育，产生积极社会影响</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 赞助方案 -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">SPONSORSHIP TIERS</span>
+                <h2 class="section-title">赞助方案</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="sponsor-cards">
+                <div class="sponsor-card reveal">
+                    <h3 class="sponsor-tier">基础支持</h3>
+                    <div class="sponsor-price">¥1,000</div>
+                    <ul class="sponsor-features">
+                        <li><i class="fas fa-check"></i> 赛车车壳Logo展示</li>
+                        <li><i class="fas fa-check"></i> 赛事社群感谢提及</li>
+                        <li><i class="fas fa-check"></i> 网站赞助商墙展示</li>
+                        <li><i class="fas fa-check"></i> 赛季总结报告</li>
+                    </ul>
+                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-outline">成为赞助商</a>
+                </div>
+                
+                <div class="sponsor-card featured reveal">
+                    <h3 class="sponsor-tier">核心伙伴</h3>
+                    <div class="sponsor-price">¥3,000</div>
+                    <ul class="sponsor-features">
+                        <li><i class="fas fa-check"></i> <strong>所有基础权益</strong></li>
+                        <li><i class="fas fa-check"></i> 队服显著位置Logo</li>
+                        <li><i class="fas fa-check"></i> 比赛PPT及展台核心展示</li>
+                        <li><i class="fas fa-check"></i> 专属技术交流机会</li>
+                        <li><i class="fas fa-check"></i> 未来赛事优先赞助权</li>
+                    </ul>
+                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-gold">成为核心伙伴</a>
+                </div>
+                
+                <div class="sponsor-card reveal">
+                    <h3 class="sponsor-tier">战略合作</h3>
+                    <div class="sponsor-price">定制</div>
+                    <ul class="sponsor-features">
+                        <li><i class="fas fa-check"></i> <strong>所有核心伙伴权益</strong></li>
+                        <li><i class="fas fa-check"></i> 联合技术开发与测试</li>
+                        <li><i class="fas fa-check"></i> 品牌故事深度整合</li>
+                        <li><i class="fas fa-check"></i> 长期品牌共建规划</li>
+                        <li><i class="fas fa-check"></i> 定制化回报方案</li>
+                    </ul>
+                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-outline">洽谈合作</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作流程 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">PROCESS</span>
+                <h2 class="section-title">合作流程</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="process-steps">
+                <div class="process-step reveal">
+                    <div class="step-number">1</div>
+                    <div class="step-title">初步洽谈</div>
+                    <div class="step-desc">了解您的需求</div>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">2</div>
+                    <div class="step-title">方案定制</div>
+                    <div class="step-desc">匹配最佳权益</div>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">3</div>
+                    <div class="step-title">签约付款</div>
+                    <div class="step-desc">透明高效流程</div>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">4</div>
+                    <div class="step-title">权益执行</div>
+                    <div class="step-desc">全程专人对接</div>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">5</div>
+                    <div class="step-title">效果评估</div>
+                    <div class="step-desc">数据化报告</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">FAQ</span>
+                <h2 class="section-title">常见问题</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h4>赞助资金如何使用？</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            赞助资金将完全用于赛车研发、比赛参赛、设备采购和团队运营。我们承诺财务透明，每季度向赞助商提供资金使用报告。
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h4>如何跟踪赞助效果？</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            我们提供多维度效果追踪：网站曝光数据、社交媒体互动数据、比赛现场品牌展示照片、赛季总结报告等。
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h4>可以指定资金用途吗？</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            战略合作级别的赞助商可以指定资金用途，如专项用于电机升级、碳纤维部件采购等具体项目。
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h4>合作期限是多久？</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            基础支持和核心伙伴为单赛季合作（每年9月至次年8月），战略合作可定制多年合作方案。
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h4>除了资金还可以提供什么支持？</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            我们也欢迎设备赞助、技术支持、场地提供等非资金形式的支持，具体权益可单独商议。
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h4>如何联系洽谈？</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            请发送邮件至 s23393.sun@stu.scie.com.cn，或通过网站 https://apexracing-scie.github.io/ 联系我们，我们会在24小时内回复。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align: center;" class="reveal">
+                <h2 style="font-size: 32px; margin-bottom: 16px;">准备好支持下一代工程师了吗？</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: 24px;">下载赞助手册或立即联系我们</p>
+                <div style="display: flex; gap: 16px; justify-content: center;">
+                    <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> 下载赞助手册</a>
+                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-primary">立即洽谈</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-text">APEX <span>RACING</span></div>
+                    <p>Precision, Partnership, Perseverance.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-bilibili"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-section">
+                    <h4 class="footer-title">快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="sponsors.html">赞助合作</a></li>
+                        <li><a href="join.html">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-section">
+                    <h4 class="footer-title">联系我们</h4>
+                    <p><i class="fas fa-envelope"></i> s23393.sun@stu.scie.com.cn</p>
+                    <p><i class="fas fa-globe"></i> <a href="https://apexracing-scie.github.io/" target="_blank">https://apexracing-scie.github.io/</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> 深圳国际交流书院</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Apex Racing. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心成员 | Apex Racing - 认识我们的团队</title>
+    <meta name="description" content="Apex Racing核心团队成员介绍。团长、技术总监、车手、工程师、运营，每个人都是系统中不可或缺的共振节点。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .page-hero {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url('images/team-photo.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+        }
+        
+        .page-hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .page-hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            margin-bottom: 16px;
+        }
+        
+        .page-hero p {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+        }
+        
+        /* 团长专区 */
+        .leader-section {
+            background: var(--color-bg-secondary);
+            border-radius: 16px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .leader-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .leader-info h2 {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+        
+        .leader-role {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--color-accent-gold);
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .leader-meta {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .leader-bio {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        
+        .leader-duties {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        
+        .leader-duties li {
+            padding: 8px 0;
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .leader-duties li i {
+            color: var(--color-accent-gold);
+        }
+        
+        .leader-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .leader-tag {
+            padding: 6px 12px;
+            background: var(--color-bg-primary);
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--color-text-secondary);
+        }
+        
+        .leader-quote {
+            font-style: italic;
+            color: var(--color-accent-gold);
+            border-left: 3px solid var(--color-accent-gold);
+            padding-left: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .leader-social {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .leader-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--color-bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .leader-social a:hover {
+            background: var(--color-accent-gold);
+            color: var(--color-bg-primary);
+        }
+        
+        /* 团队成员网格 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .team-card {
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .team-card-image {
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+        }
+        
+        .team-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-card-content {
+            padding: 24px;
+        }
+        
+        .team-card-content h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .team-card-role {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--color-accent-gold);
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .team-card-meta {
+            color: var(--color-text-secondary);
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+        
+        .team-card-bio {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .team-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        
+        .team-card-tag {
+            padding: 4px 8px;
+            background: var(--color-bg-primary);
+            border-radius: 4px;
+            font-size: 11px;
+            color: var(--color-text-secondary);
+        }
+        
+        .team-card-social {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .team-card-social a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--color-bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-secondary);
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card-social a:hover {
+            background: var(--color-accent-gold);
+            color: var(--color-bg-primary);
+        }
+        
+        @media (max-width: 1024px) {
+            .leader-section {
+                grid-template-columns: 1fr;
+                padding: 40px;
+            }
+            
+            .leader-image {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-car-side logo-icon"></i>
+                <span class="logo-text">APEX <span>RACING</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="cars/apex-04.html">赛车展示</a></li>
+                <li><a href="tech/index.html">技术中心</a></li>
+                <li><a href="racing/index.html">赛事实绩</a></li>
+                <li><a href="team.html" class="active">核心成员</a></li>
+                <li><a href="join.html" class="btn btn-primary nav-cta">加入我们</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="cars/apex-04.html">赛车展示</a>
+        <a href="tech/index.html">技术中心</a>
+        <a href="racing/index.html">赛事实绩</a>
+        <a href="team.html">核心成员</a>
+        <a href="join.html">加入我们</a>
+    </div>
+
+    <!-- 页面Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>核心成员</h1>
+            <p>每个人都是系统中不可或缺的共振节点</p>
+        </div>
+    </section>
+
+    <!-- 团长专区 -->
+    <section class="section">
+        <div class="container">
+            <div class="leader-section reveal">
+                <div class="leader-image">
+                    <img src="images/member-1.jpg" alt="团长">
+                </div>
+                <div class="leader-info">
+                    <h2>张明远</h2>
+                    <span class="leader-role">团长</span>
+                    <p class="leader-meta">G2 | 2025-2026任期</p>
+                    <p class="leader-bio">
+                        张明远是Apex Racing的创始人之一，从社团成立之初就致力于将RC赛车与工程教育相结合。
+                        他擅长团队管理和战略规划，带领团队从DNF到全国亚军的逆袭之路。
+                    </p>
+                    <ul class="leader-duties">
+                        <li><i class="fas fa-check"></i> 统筹团队运营与战略规划</li>
+                        <li><i class="fas fa-check"></i> 负责对外合作与赞助洽谈</li>
+                        <li><i class="fas fa-check"></i> 制定赛季目标与技术路线</li>
+                    </ul>
+                    <div class="leader-tags">
+                        <span class="leader-tag">团队管理</span>
+                        <span class="leader-tag">战略规划</span>
+                        <span class="leader-tag">商务拓展</span>
+                        <span class="leader-tag">赛车调校</span>
+                    </div>
+                    <p class="leader-quote">"卓越的成绩源于每个成员在擅长领域的闪光。"</p>
+                    <div class="leader-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 其他成员 -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">TEAM MEMBERS</span>
+                <h2 class="section-title">团队成员</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="team-grid">
+                <div class="team-card reveal">
+                    <div class="team-card-image">
+                        <img src="images/member-3.jpg" alt="技术总监">
+                    </div>
+                    <div class="team-card-content">
+                        <h4>李浩然</h4>
+                        <span class="team-card-role">技术总监</span>
+                        <p class="team-card-meta">G2 | 车辆工程与技术方案</p>
+                        <p class="team-card-bio">机械工程爱好者，精通CAD设计和3D打印，负责车辆技术方案制定与实施。</p>
+                        <div class="team-card-tags">
+                            <span class="team-card-tag">CAD设计</span>
+                            <span class="team-card-tag">3D打印</span>
+                            <span class="team-card-tag">动力系统</span>
+                        </div>
+                        <div class="team-card-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card reveal">
+                    <div class="team-card-image">
+                        <img src="images/member-4.jpg" alt="首席车手">
+                    </div>
+                    <div class="team-card-content">
+                        <h4>王梓轩</h4>
+                        <span class="team-card-role">首席车手</span>
+                        <p class="team-card-meta">G1 | 赛道驾驶与比赛策略</p>
+                        <p class="team-card-bio">反应速度极快，心理素质过硬，负责正式比赛驾驶和赛道数据分析。</p>
+                        <div class="team-card-tags">
+                            <span class="team-card-tag">赛道驾驶</span>
+                            <span class="team-card-tag">比赛策略</span>
+                            <span class="team-card-tag">数据分析</span>
+                        </div>
+                        <div class="team-card-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card reveal">
+                    <div class="team-card-image">
+                        <img src="images/member-5.jpg" alt="运营总监">
+                    </div>
+                    <div class="team-card-content">
+                        <h4>陈思雨</h4>
+                        <span class="team-card-role">运营总监</span>
+                        <p class="team-card-meta">G1 | 宣传推广与赞助洽谈</p>
+                        <p class="team-card-bio">擅长新媒体运营和视觉设计，负责社团宣传和赞助商关系维护。</p>
+                        <div class="team-card-tags">
+                            <span class="team-card-tag">新媒体</span>
+                            <span class="team-card-tag">视觉设计</span>
+                            <span class="team-card-tag">赞助洽谈</span>
+                        </div>
+                        <div class="team-card-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card reveal">
+                    <div class="team-card-image">
+                        <img src="images/member-6.jpg" alt="底盘工程师">
+                    </div>
+                    <div class="team-card-content">
+                        <h4>刘子墨</h4>
+                        <span class="team-card-role">底盘工程师</span>
+                        <p class="team-card-meta">G1 | 悬挂系统与底盘调校</p>
+                        <p class="team-card-bio">对车辆动力学有深入研究，负责悬挂调校和底盘优化。</p>
+                        <div class="team-card-tags">
+                            <span class="team-card-tag">悬挂调校</span>
+                            <span class="team-card-tag">底盘工程</span>
+                            <span class="team-card-tag">车辆动力学</span>
+                        </div>
+                        <div class="team-card-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card reveal">
+                    <div class="team-card-image">
+                        <img src="images/member-7.jpg" alt="电子工程师">
+                    </div>
+                    <div class="team-card-content">
+                        <h4>赵雨桐</h4>
+                        <span class="team-card-role">电子工程师</span>
+                        <p class="team-card-meta">G1 | 电子系统与程序开发</p>
+                        <p class="team-card-bio">编程高手，负责电调参数优化和数据采集系统开发。</p>
+                        <div class="team-card-tags">
+                            <span class="team-card-tag">电子系统</span>
+                            <span class="team-card-tag">程序开发</span>
+                            <span class="team-card-tag">数据采集</span>
+                        </div>
+                        <div class="team-card-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card reveal">
+                    <div class="team-card-image">
+                        <img src="images/member-2.jpg" alt="助理车手">
+                    </div>
+                    <div class="team-card-content">
+                        <h4>周晓雯</h4>
+                        <span class="team-card-role">助理车手</span>
+                        <p class="team-card-meta">G1 | 备用车手与训练</p>
+                        <p class="team-card-bio">训练刻苦，负责日常测试驾驶和车手训练计划制定。</p>
+                        <div class="team-card-tags">
+                            <span class="team-card-tag">测试驾驶</span>
+                            <span class="team-card-tag">训练计划</span>
+                            <span class="team-card-tag">数据分析</span>
+                        </div>
+                        <div class="team-card-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 加入我们CTA -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align: center;" class="reveal">
+                <h2 style="font-size: 32px; margin-bottom: 16px;">想加入这个团队？</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: 24px;">我们每年秋季进行主要招新，期待你的加入</p>
+                <a href="join.html" class="btn btn-primary">查看招新信息</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-text">APEX <span>RACING</span></div>
+                    <p>Precision, Partnership, Perseverance.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-bilibili"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-section">
+                    <h4 class="footer-title">快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cars/apex-04.html">赛车展示</a></li>
+                        <li><a href="team.html">核心成员</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-section">
+                    <h4 class="footer-title">联系我们</h4>
+                    <p><i class="fas fa-envelope"></i> contact@apexracing.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 深圳国际交流书院</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Apex Racing. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

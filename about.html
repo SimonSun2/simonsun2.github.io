@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 | Apex Racing - 从校园俱乐部到竞技赛场</title>
+    <meta name="description" content="了解Apex Racing的历史、团队哲学、组织架构和设施资源。我们是深国交最具专业度的赛车工程社团。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .page-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url('images/team-photo.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+        }
+        
+        .page-hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .page-hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            margin-bottom: 16px;
+        }
+        
+        .page-hero p {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            color: var(--color-accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        /* 时间轴历史 */
+        .history-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 80px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-accent-gold);
+        }
+        
+        .history-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .history-year {
+            width: 80px;
+            font-family: var(--font-mono);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-accent-gold);
+            text-align: right;
+            padding-right: 30px;
+        }
+        
+        .history-dot {
+            position: absolute;
+            left: 72px;
+            width: 18px;
+            height: 18px;
+            background: var(--color-accent-gold);
+            border-radius: 50%;
+            border: 3px solid var(--color-bg-primary);
+        }
+        
+        .history-content {
+            flex: 1;
+            margin-left: 50px;
+            background: var(--color-bg-secondary);
+            padding: 24px;
+            border-radius: 12px;
+        }
+        
+        .history-content h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .history-content p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        /* 团队哲学 */
+        .philosophy-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .philosophy-card {
+            background: var(--color-bg-secondary);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .philosophy-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .philosophy-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .philosophy-icon i {
+            font-size: 36px;
+            color: var(--color-accent-gold);
+        }
+        
+        .philosophy-card h3 {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+        
+        .philosophy-card p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        /* 组织架构 */
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .org-level {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .org-card {
+            background: var(--color-bg-secondary);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 180px;
+            border: 1px solid var(--color-border);
+        }
+        
+        .org-card.leader {
+            border-color: var(--color-accent-gold);
+        }
+        
+        .org-card h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        
+        .org-card span {
+            font-size: 13px;
+            color: var(--color-accent-gold);
+        }
+        
+        /* 设施画廊 */
+        .facility-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .facility-item {
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+        }
+        
+        .facility-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .history-timeline::before {
+                left: 20px;
+            }
+            
+            .history-year {
+                width: auto;
+                text-align: left;
+                padding-right: 0;
+                margin-bottom: 8px;
+            }
+            
+            .history-item {
+                flex-direction: column;
+                padding-left: 50px;
+            }
+            
+            .history-dot {
+                left: 12px;
+            }
+            
+            .history-content {
+                margin-left: 0;
+            }
+            
+            .philosophy-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .facility-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-car-side logo-icon"></i>
+                <span class="logo-text">APEX <span>RACING</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html" class="active">关于我们</a></li>
+                <li><a href="cars/apex-04.html">赛车展示</a></li>
+                <li><a href="tech/index.html">技术中心</a></li>
+                <li><a href="racing/index.html">赛事实绩</a></li>
+                <li><a href="team.html">核心成员</a></li>
+                <li><a href="join.html" class="btn btn-primary nav-cta">加入我们</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="cars/apex-04.html">赛车展示</a>
+        <a href="tech/index.html">技术中心</a>
+        <a href="racing/index.html">赛事实绩</a>
+        <a href="team.html">核心成员</a>
+        <a href="join.html">加入我们</a>
+    </div>
+
+    <!-- 页面Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>关于我们</h1>
+            <p>Precision. Partnership. Perseverance.</p>
+        </div>
+    </section>
+
+    <!-- 社团历史 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">OUR HISTORY</span>
+                <h2 class="section-title">社团历史</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="history-timeline">
+                <div class="history-item reveal">
+                    <div class="history-year">2019</div>
+                    <div class="history-dot"></div>
+                    <div class="history-content">
+                        <h3>社团成立</h3>
+                        <p>5名创始成员，1辆入门级赛车，从深国交RC俱乐部起步，怀揣着对赛车工程的热爱。</p>
+                    </div>
+                </div>
+                <div class="history-item reveal">
+                    <div class="history-year">2021</div>
+                    <div class="history-dot"></div>
+                    <div class="history-content">
+                        <h3>首次参赛</h3>
+                        <p>首次参加市级比赛，获最佳新人奖，开始在竞赛舞台上崭露头角。</p>
+                    </div>
+                </div>
+                <div class="history-item reveal">
+                    <div class="history-year">2023</div>
+                    <div class="history-dot"></div>
+                    <div class="history-content">
+                        <h3>技术突破</h3>
+                        <p>引入碳纤维技术，自主设计3D打印部件，技术水平实现质的飞跃。</p>
+                    </div>
+                </div>
+                <div class="history-item reveal">
+                    <div class="history-year">2024</div>
+                    <div class="history-dot"></div>
+                    <div class="history-content">
+                        <h3>华南冠军</h3>
+                        <p>华南区锦标赛冠军，打破赛道纪录，成为区域内最具竞争力的中学生车队。</p>
+                    </div>
+                </div>
+                <div class="history-item reveal">
+                    <div class="history-year">2025</div>
+                    <div class="history-dot"></div>
+                    <div class="history-content">
+                        <h3>全国亚军</h3>
+                        <p>NSL全国赛活塞组亚军，多项单项奖，从DNF到领奖台的完美逆袭。</p>
+                    </div>
+                </div>
+                <div class="history-item reveal">
+                    <div class="history-year">2026</div>
+                    <div class="history-dot"></div>
+                    <div class="history-content">
+                        <h3>目标全国冠军</h3>
+                        <p>向全国冠军发起冲击，走向国际赛事，让世界看到中国中学生工程师的力量。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队哲学 -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">OUR PHILOSOPHY</span>
+                <h2 class="section-title">团队哲学</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="philosophy-cards">
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>Precision</h3>
+                    <p>精准是工程设计的灵魂。从每一个螺丝的扭矩到每一次调校的参数，我们追求极致的精确，因为赛场上0.1秒的差距，往往源于平日里0.01毫米的疏忽。</p>
+                </div>
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partnership</h3>
+                    <p>协作是团队成功的基石。队长、车手、工程师、摄影师、商务，每个人都是系统中不可或缺的共振节点。我们相信，卓越的成绩源于每个成员在擅长领域的闪光。</p>
+                </div>
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Perseverance</h3>
+                    <p>坚韧是突破困境的力量。从DNF到亚军，我们用一年时间证明：失败不是终点，而是通往成功的必经之路。每一次跌倒，都是为了更高飞的蓄力。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 组织架构 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">ORGANIZATION</span>
+                <h2 class="section-title">组织架构</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="org-chart">
+                <div class="org-level reveal">
+                    <div class="org-card leader">
+                        <h4>张明远</h4>
+                        <span>团长</span>
+                    </div>
+                </div>
+                <div class="org-level reveal">
+                    <div class="org-card">
+                        <h4>李浩然</h4>
+                        <span>技术总监</span>
+                    </div>
+                    <div class="org-card">
+                        <h4>陈思雨</h4>
+                        <span>运营总监</span>
+                    </div>
+                </div>
+                <div class="org-level reveal">
+                    <div class="org-card">
+                        <h4>王梓轩</h4>
+                        <span>车手组</span>
+                    </div>
+                    <div class="org-card">
+                        <h4>刘子墨</h4>
+                        <span>工程师组</span>
+                    </div>
+                    <div class="org-card">
+                        <h4>赵雨桐</h4>
+                        <span>宣传组</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 设施与资源 -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">FACILITIES</span>
+                <h2 class="section-title">设施与资源</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="facility-gallery">
+                <div class="facility-item reveal">
+                    <img src="images/tech-electronics.jpg" alt="工作坊">
+                </div>
+                <div class="facility-item reveal">
+                    <img src="images/tech-suspension.jpg" alt="设备">
+                </div>
+                <div class="facility-item reveal">
+                    <img src="images/tech-aero.jpg" alt="赛车">
+                </div>
+            </div>
+            <div style="max-width: 800px; margin: 40px auto 0; text-align: center;">
+                <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                    学校为我们提供了专业的工作坊，配备完整的工具架、测试设备和备件存储区。
+                    每周五下午16:00-18:00为固定社团活动时间，成员可随时使用设施进行车辆维护和升级。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-text">APEX <span>RACING</span></div>
+                    <p>Precision, Partnership, Perseverance.<br>深国交学生工程赛车团队。</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-bilibili"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-section">
+                    <h4 class="footer-title">快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cars/apex-04.html">赛车展示</a></li>
+                        <li><a href="racing/index.html">赛事实绩</a></li>
+                        <li><a href="team.html">核心成员</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-section">
+                    <h4 class="footer-title">资源</h4>
+                    <ul class="footer-links">
+                        <li><a href="tech/index.html">技术博客</a></li>
+                        <li><a href="#">知识库</a></li>
+                        <li><a href="#">校友网络</a></li>
+                        <li><a href="sponsors.html">赞助合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-section">
+                    <h4 class="footer-title">联系我们</h4>
+                    <p><i class="fas fa-envelope"></i> contact@apexracing.com</p>
+                    <p><i class="fas fa-globe"></i> <a href="https://apexracing-scie.github.io/" target="_blank">https://apexracing-scie.github.io/</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> 深圳国际交流书院</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Apex Racing. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

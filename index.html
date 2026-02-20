@@ -3,466 +3,1004 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Racing | 深国交RC社团</title>
-    <!-- 引入Tailwind CSS（简化样式开发） -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入Font Awesome图标 -->
+    <title>Apex Racing | 深国交赛车工程团队 - 华南最专业的中学生RC赛车社团</title>
+    <meta name="description" content="Apex Racing是深圳国际交流学院的RC赛车工程社团，在NSL全国赛中获得活塞组亚军。我们致力于赛车工程教育，培养下一代工程师。">
+    <meta name="keywords" content="Apex Racing, 深国交, RC赛车, 赛车社团, 中学生赛车, NSL全国赛">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Apex Racing | 深国交赛车工程团队">
+    <meta property="og:description" content="华南地区最具专业度的中学生RC赛车工程团队">
+    <meta property="og:image" content="images/hero-racing.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- 自定义配置 -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // 黑金主题配色：黑色为主，金色为辅
-                        primary: '#B8860B', // 主色（深金色）
-                        secondary: '#1A1A1A', // 辅助色（深灰色）
-                        dark: '#0A0A0A', // 深色背景
-                        light: '#F5F5F5', // 浅色文本
-                    },
-                    fontFamily: {
-                        racing: ['Montserrat', 'sans-serif'],
-                    },
-                }
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* 首页特有样式 */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url('images/hero-racing.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 0 24px;
+        }
+        
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 800;
+            color: var(--color-text-primary);
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--color-text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .hero-tagline {
+            font-family: var(--font-heading);
+            font-size: clamp(14px, 2vw, 18px);
+            color: var(--color-accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-stat-item {
+            text-align: center;
+        }
+        
+        .hero-stat-number {
+            font-family: var(--font-mono);
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            color: var(--color-accent-gold);
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .hero-stat-label {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator a {
+            color: var(--color-text-primary);
+            font-size: 24px;
+        }
+        
+        /* 关于我们预览 */
+        .about-preview {
+            background-color: var(--color-bg-primary);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content-text h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .about-content-text p {
+            color: var(--color-text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .about-stat {
+            text-align: center;
+        }
+        
+        .about-stat-number {
+            font-family: var(--font-mono);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--color-accent-gold);
+        }
+        
+        .about-stat-label {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+        
+        /* 技术中心 */
+        .tech-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .tech-card {
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .tech-card-image {
+            height: 200px;
+            background: var(--color-bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .tech-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .tech-card-icon {
+            font-size: 48px;
+            color: var(--color-accent-gold);
+        }
+        
+        .tech-card-content {
+            padding: 24px;
+        }
+        
+        .tech-card-content h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .tech-card-content p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        .tech-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* 当前赛车 */
+        .current-car {
+            background-color: var(--color-bg-secondary);
+            text-align: center;
+        }
+        
+        .car-showcase {
+            margin: 40px 0;
+        }
+        
+        .car-showcase img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+        }
+        
+        .car-specs {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 40px 0;
+        }
+        
+        .car-spec {
+            text-align: center;
+        }
+        
+        .car-spec-value {
+            font-family: var(--font-mono);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-accent-gold);
+        }
+        
+        .car-spec-label {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* 赛事实绩时间轴 */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--color-accent-gold);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-date {
+            width: 120px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--color-accent-gold);
+            padding: 0 20px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: var(--color-bg-secondary);
+            padding: 24px;
+            border-radius: 12px;
+            margin: 0 20px;
+        }
+        
+        .timeline-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-content p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--color-accent-gold);
+            border-radius: 50%;
+            border: 3px solid var(--color-bg-primary);
+        }
+        
+        /* 核心成员 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .team-card {
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .team-card-image {
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+        }
+        
+        .team-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-card-content {
+            padding: 20px;
+        }
+        
+        .team-card-content h4 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        
+        .team-card-role {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--color-accent-gold);
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .team-card-content p {
+            color: var(--color-text-secondary);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        .team-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--color-bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            background: var(--color-accent-gold);
+            color: var(--color-bg-primary);
+        }
+        
+        /* 赞助方案 */
+        .sponsor-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .sponsor-card {
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+        
+        .sponsor-card.featured {
+            border-color: var(--color-accent-gold);
+            transform: scale(1.05);
+        }
+        
+        .sponsor-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .sponsor-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+        
+        .sponsor-tier {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .sponsor-price {
+            font-family: var(--font-mono);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-accent-gold);
+            margin-bottom: 24px;
+        }
+        
+        .sponsor-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        
+        .sponsor-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sponsor-features li i {
+            color: var(--color-accent-gold);
+        }
+        
+        /* CTA区域 */
+        .join-cta {
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.1), rgba(230, 57, 70, 0.1));
+            text-align: center;
+        }
+        
+        .join-cta h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        
+        .join-cta p {
+            color: var(--color-text-secondary);
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 1024px) {
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .sponsor-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .sponsor-card.featured {
+                transform: none;
+            }
+            
+            .sponsor-card.featured:hover {
+                transform: translateY(-8px);
             }
         }
-    </script>
-    <!-- 自定义样式 -->
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow {
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        
+        @media (max-width: 768px) {
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 20px;
             }
-            .text-gold-glow {
-                text-shadow: 0 0 10px rgba(184, 134, 11, 0.5), 0 0 20px rgba(184, 134, 11, 0.3);
+            
+            .tech-cards {
+                grid-template-columns: 1fr;
             }
-            .bg-blur {
-                backdrop-filter: blur(8px);
+            
+            .car-specs {
+                flex-direction: column;
+                gap: 24px;
             }
-            .hover-scale {
-                transition: transform 0.3s ease;
+            
+            .timeline::before {
+                left: 20px;
             }
-            .hover-scale:hover {
-                transform: scale(1.05);
+            
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+                padding-left: 50px;
+            }
+            
+            .timeline-date {
+                text-align: left;
+                padding: 0;
+                margin-bottom: 8px;
+            }
+            
+            .timeline-content {
+                margin: 0;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
-    <!-- 引入谷歌字体 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="font-racing bg-dark text-light overflow-x-hidden">
+
+<body>
     <!-- 导航栏 -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-dark/80 bg-blur">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-2">
-                <i class="fa-solid fa-car-side text-primary text-2xl"></i>
-                <span class="text-xl font-bold">Apex Racing</span>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-car-side logo-icon"></i>
+                <span class="logo-text">APEX <span>RACING</span></span>
             </a>
-            <!-- 桌面端导航 -->
-            <div class="hidden md:flex gap-8">
-                <a href="#home" class="hover:text-primary transition-colors">首页</a>
-                <a href="#about" class="hover:text-primary transition-colors">关于我们</a>
-                <a href="#events" class="hover:text-primary transition-colors">赛事活动</a>
-                <a href="#members" class="hover:text-primary transition-colors">核心成员</a>
-                <a href="#join" class="hover:text-primary transition-colors">加入我们</a>
-                <a href="#contact" class="hover:text-primary transition-colors">联系我们</a>
-            </div>
-            <!-- 移动端菜单按钮 -->
-            <button id="menuBtn" class="md:hidden text-2xl">
-                <i class="fa-solid fa-bars"></i>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="cars/apex-04.html">赛车展示</a></li>
+                <li><a href="tech/index.html">技术中心</a></li>
+                <li><a href="racing/index.html">赛事实绩</a></li>
+                <li><a href="team.html">核心成员</a></li>
+                <li><a href="join.html" class="btn btn-primary nav-cta">加入我们</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
-        <!-- 移动端导航菜单 -->
-        <div id="mobileMenu" class="md:hidden hidden bg-dark/95 bg-blur w-full">
-            <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
-                <a href="#home" class="py-2 hover:text-primary transition-colors">首页</a>
-                <a href="#about" class="py-2 hover:text-primary transition-colors">关于我们</a>
-                <a href="#events" class="py-2 hover:text-primary transition-colors">赛事活动</a>
-                <a href="#members" class="py-2 hover:text-primary transition-colors">核心成员</a>
-                <a href="#join" class="py-2 hover:text-primary transition-colors">加入我们</a>
-                <a href="#contact" class="py-2 hover:text-primary transition-colors">联系我们</a>
-            </div>
-        </div>
     </nav>
+    
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="cars/apex-04.html">赛车展示</a>
+        <a href="tech/index.html">技术中心</a>
+        <a href="racing/index.html">赛事实绩</a>
+        <a href="team.html">核心成员</a>
+        <a href="join.html">加入我们</a>
+    </div>
 
-    <!-- 首页Hero区 -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative pt-16">
-        <div class="absolute inset-0 z-0">
-            <img src="https://picsum.photos/id/1072/1920/1080" alt="赛车背景" class="w-full h-full object-cover opacity-30">
-            <div class="absolute inset-0 bg-gradient-to-b from-dark/50 to-dark"></div>
-        </div>
-        <div class="container mx-auto px-4 z-10 text-center">
-            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold mb-4 text-shadow text-gold-glow">
-                Apex <span class="text-primary">Racing</span>
-            </h1>
-            <p class="text-[clamp(1rem,3vw,1.5rem)] mb-8 max-w-2xl mx-auto">
-                深国交RC赛车社团 | 速度与激情，热爱与梦想
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#join" class="px-8 py-3 bg-primary text-light rounded-full font-semibold hover-scale">
-                    加入我们
-                </a>
-                <a href="#events" class="px-8 py-3 border border-primary text-primary rounded-full font-semibold hover-scale">
-                    查看赛事
-                </a>
+    <!-- Hero区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">APEX RACING</h1>
+            <p class="hero-subtitle">深国交赛车工程团队</p>
+            <p class="hero-tagline">Precision. Partnership. Perseverance.</p>
+            <div class="hero-cta">
+                <a href="cars/apex-04.html" class="btn btn-outline">探索我们的赛车</a>
+                <a href="join.html" class="btn btn-primary">加入我们</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat-item">
+                    <span class="hero-stat-number" data-counter data-target="2" data-prefix="#">#2</span>
+                    <span class="hero-stat-label">全国赛小组排名</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="hero-stat-number" data-counter data-target="10" data-suffix="%">10%</span>
+                    <span class="hero-stat-label">电机性能提升</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="hero-stat-number" data-counter data-target="9500" data-prefix="¥" data-suffix="+">¥9500+</span>
+                    <span class="hero-stat-label">商业赞助总额</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="hero-stat-number" data-counter data-target="7">7</span>
+                    <span class="hero-stat-label">核心团队成员</span>
+                </div>
             </div>
         </div>
-        <!-- 向下滚动按钮 -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <a href="#about" class="text-light text-2xl">
-                <i class="fa-solid fa-chevron-down"></i>
-            </a>
+        <div class="scroll-indicator">
+            <a href="#about"><i class="fas fa-chevron-down"></i></a>
         </div>
     </section>
 
     <!-- 关于我们 -->
-    <section id="about" class="py-20 bg-secondary/20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">关于我们</h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
+    <section class="section about-preview" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">WHO WE ARE</span>
+                <h2 class="section-title">从校园俱乐部到竞技赛场</h2>
+                <div class="title-underline"></div>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="hover-scale">
-                    <img src="https://picsum.photos/id/1068/800/600" alt="社团活动" class="rounded-lg w-full shadow-lg">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="images/team-photo.jpg" alt="Apex Racing团队">
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4 text-primary">深国交Apex Racing RC社团</h3>
-                    <p class="mb-4 text-lg">
-                        我们是深圳国际交流学院（深国交）的RC（遥控赛车）爱好者社团，成立于2025年8月，致力于为校内热爱赛车的同学提供交流、学习、竞技的平台。
-                    </p>
-                    <p class="mb-4 text-lg">
-                        社团定期举办校内RC赛车比赛、技术交流分享会、赛车模型改装教学等活动，不仅培养同学们的动手能力和竞技精神，更传递对赛车文化的热爱。
-                    </p>
-                    <p class="mb-6 text-lg">
-                        我们的宗旨：以车会友，追求速度，突破自我，享受竞技的乐趣！
-                    </p>
-                    <div class="flex gap-6">
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-primary mb-2">50+</div>
-                            <div>社团成员</div>
+                <div class="about-content-text reveal">
+                    <h3>深国交最具专业度的<br>赛车工程社团</h3>
+                    <p>Apex Racing起源于深国交的RC俱乐部，由一群对赛车工程充满热情的学生组建。我们不仅是遥控车爱好者，更是致力于将STEM知识应用于实践的学生工程师。</p>
+                    <p>面对去年NSL赛事因机械故障DNF的挫折，我们没有放弃。本学期，我们通过系统性的工程改进——从电子升级到精密调校——实现了车辆稳定性的突破，最终在全国赛场获得活塞组亚军及多项单项奖。</p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="about-stat-number" data-counter data-target="50" data-suffix="+">50+</span>
+                            <span class="about-stat-label">社团成员</span>
                         </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-primary mb-2">10+</div>
-                            <div>年度赛事</div>
+                        <div class="about-stat">
+                            <span class="about-stat-number" data-counter data-target="10" data-suffix="+">10+</span>
+                            <span class="about-stat-label">年度赛事</span>
                         </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-primary mb-2">5+</div>
-                            <div>校外合作</div>
+                        <div class="about-stat">
+                            <span class="about-stat-number" data-counter data-target="5" data-suffix="+">5+</span>
+                            <span class="about-stat-label">校外合作</span>
                         </div>
                     </div>
+                    <a href="about.html" class="btn btn-outline" style="margin-top: 30px;">了解更多 <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 赛事活动 -->
-    <section id="events" class="py-20 bg-dark">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">赛事活动</h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
-                <p class="mt-4 text-lg max-w-2xl mx-auto">
-                    记录每一次的速度对决，见证每一个精彩瞬间
-                </p>
+    <!-- 技术中心 -->
+    <section class="section section-alt" id="tech">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">TECH CENTER</span>
+                <h2 class="section-title">技术中心</h2>
+                <div class="title-underline"></div>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 赛事卡片1 -->
-                <div class="bg-secondary/30 rounded-lg overflow-hidden shadow-lg hover-scale">
-                    <img src="https://picsum.photos/id/1071/600/400" alt="春季校内赛" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="bg-primary/80 text-light px-3 py-1 rounded-full text-sm">已结束</span>
-                            <span class="text-gray-400">2026.03.15</span>
+            <div class="tech-cards">
+                <div class="tech-card reveal">
+                    <div class="tech-card-image">
+                        <img src="images/tech-electronics.jpg" alt="电子系统升级">
+                    </div>
+                    <div class="tech-card-content">
+                        <span class="tag tag-gold">动力总成</span>
+                        <h3>电子系统升级</h3>
+                        <p>通过高KV值电机与进口高速密封轴承替换原厂轴套，实现约10%的转速与马力提升。</p>
+                        <div class="tech-card-meta">
+                            <span><i class="far fa-calendar"></i> 2026.02</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">2026春季校内RC竞速赛</h3>
-                        <p class="text-gray-300 mb-4">
-                            本次赛事设置了1/10平跑组和越野组，共有32名选手参赛，最终高二X班XXX以1分20秒的成绩夺得平跑组冠军。
-                        </p>
-                        <a href="#" class="text-primary hover:underline flex items-center gap-1">
-                            查看详情 <i class="fa-solid fa-arrow-right"></i>
-                        </a>
                     </div>
                 </div>
-                <!-- 赛事卡片2 -->
-                <div class="bg-secondary/30 rounded-lg overflow-hidden shadow-lg hover-scale">
-                    <img src="https://picsum.photos/id/1073/600/400" alt="改装分享会" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="bg-blue-600/80 text-light px-3 py-1 rounded-full text-sm">即将开始</span>
-                            <span class="text-gray-400">2026.04.01-04.30</span>
+                <div class="tech-card reveal">
+                    <div class="tech-card-image">
+                        <img src="images/tech-suspension.jpg" alt="车辆动力学调校">
+                    </div>
+                    <div class="tech-card-content">
+                        <span class="tag tag-gold">底盘工程</span>
+                        <h3>车辆动力学调校</h3>
+                        <p>深入实践Caster、Camber、Toe的调校艺术，在直线稳定性与弯道响应间寻找最佳平衡。</p>
+                        <div class="tech-card-meta">
+                            <span><i class="fas fa-sync"></i> 持续进行</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">RC赛车改装技术分享月</h3>
-                        <p class="text-gray-300 mb-4">
-                            每周五下午社团活动室，由资深成员分享电机、舵机、轮胎等改装技巧，新手可免费领取改装入门手册。
-                        </p>
-                        <a href="#" class="text-primary hover:underline flex items-center gap-1">
-                            查看详情 <i class="fa-solid fa-arrow-right"></i>
-                        </a>
                     </div>
                 </div>
-                <!-- 赛事卡片3 -->
-                <div class="bg-secondary/30 rounded-lg overflow-hidden shadow-lg hover-scale">
-                    <img src="https://picsum.photos/id/1074/600/400" alt="校际友谊赛" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="bg-blue-600/80 text-light px-3 py-1 rounded-full text-sm">即将开始</span>
-                            <span class="text-gray-400">2026.05.20</span>
+                <div class="tech-card reveal">
+                    <div class="tech-card-image">
+                        <img src="images/tech-aero.jpg" alt="轻量化与空力设计">
+                    </div>
+                    <div class="tech-card-content">
+                        <span class="tag tag-gold">空气动力学</span>
+                        <h3>轻量化与空力设计</h3>
+                        <p>采用碳纤维件替换原厂尼龙件，与空力社合作进行尾翼模拟与风洞测试。</p>
+                        <div class="tech-card-meta">
+                            <span><i class="far fa-calendar"></i> 2026.01</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">深国交VS深外RC校际友谊赛</h3>
-                        <p class="text-gray-300 mb-4">
-                            与深圳外国语学校RC社团联合举办的校际友谊赛，设置团队赛和个人赛，欢迎同学们报名参赛或观赛。
-                        </p>
-                        <a href="#" class="text-primary hover:underline flex items-center gap-1">
-                            查看详情 <i class="fa-solid fa-arrow-right"></i>
-                        </a>
                     </div>
                 </div>
             </div>
-            <!-- 更多赛事按钮 -->
-            <div class="text-center mt-12">
-                <a href="#" class="px-8 py-3 border border-primary text-primary rounded-full font-semibold hover-scale inline-block">
-                    查看更多赛事
-                </a>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="tech/index.html" class="btn btn-outline">访问完整技术知识库 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 当前赛车 -->
+    <section class="section current-car" id="car">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">CURRENT CAR</span>
+                <h2 class="section-title">Apex-04 "闪电"</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="car-showcase reveal">
+                <img src="images/car-apex04-side.png" alt="Apex-04赛车">
+            </div>
+            <div class="car-specs">
+                <div class="car-spec reveal">
+                    <span class="car-spec-value" data-counter data-target="1450" data-suffix="g">1,450g</span>
+                    <span class="car-spec-label">车重</span>
+                </div>
+                <div class="car-spec reveal">
+                    <span class="car-spec-value" data-counter data-target="85" data-suffix="km/h">85km/h</span>
+                    <span class="car-spec-label">最高时速</span>
+                </div>
+                <div class="car-spec reveal">
+                    <span class="car-spec-value" data-counter data-target="2.1" data-suffix="s">2.1s</span>
+                    <span class="car-spec-label">0-60km/h加速</span>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="cars/apex-04.html" class="btn btn-outline">查看完整参数 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 赛事实绩 -->
+    <section class="section" id="racing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">RACING RECORDS</span>
+                <h2 class="section-title">赛事实绩</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2026.02</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="tag tag-red">已结束</span>
+                        <h3>NSL全国赛 - 上海站</h3>
+                        <p>活塞组亚军、最具商业力奖、最佳Presentation奖、最佳协作奖</p>
+                        <a href="racing/nsl-2026-shanghai.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">查看复盘</a>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2026.04</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="tag tag-green">进行中</span>
+                        <h3>深国交校园科技展</h3>
+                        <p>展示本赛季赛车与技术成果，与校内师生交流</p>
+                        <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">立即报名观展</a>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2026.05</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="tag tag-blue">即将开始</span>
+                        <h3>校际友谊赛</h3>
+                        <p>与深圳外国语学校RC社团联合举办</p>
+                        <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">了解规则</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="racing/index.html" class="btn btn-outline">查看完整赛事记录 <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
     <!-- 核心成员 -->
-    <section id="members" class="py-20 bg-secondary/20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">核心成员</h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
+    <section class="section section-alt" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">CORE TEAM</span>
+                <h2 class="section-title">核心成员</h2>
+                <div class="title-underline"></div>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- 成员1（团长） -->
-                <div class="bg-dark rounded-lg overflow-hidden shadow-lg hover-scale text-center">
-                    <img src="https://picsum.photos/id/1005/400/400" alt="团长" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-1">Donovan（团长）</h3>
-                        <p class="text-primary mb-3">高三 | 竞速组负责人</p>
-                        <p class="text-gray-300 mb-4">
-                            3年RC赛车经验，擅长平跑赛车改装与调校，曾获NSL小组第二名。
-                        </p>
-                        <div class="flex justify-center gap-4">
-                            <a href="#" class="text-light hover:text-primary transition-colors">
-                                <i class="fa-brands fa-wechat text-xl"></i>
-                            </a>
-                            <a href="#" class="text-light hover:text-primary transition-colors">
-                                <i class="fa-brands fa-instagram text-xl"></i>
-                            </a>
+            <div class="team-grid">
+                <div class="team-card reveal">
+                    <div class="team-card-image">
+                        <img src="images/member-1.jpg" alt="团长">
+                    </div>
+                    <div class="team-card-content">
+                        <h4>张明远</h4>
+                        <span class="team-card-role">团长</span>
+                        <p>G2 | 统筹团队运营与战略规划</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-card-image">
+                        <img src="images/member-3.jpg" alt="技术总监">
+                    </div>
+                    <div class="team-card-content">
+                        <h4>李浩然</h4>
+                        <span class="team-card-role">技术总监</span>
+                        <p>G2 | 负责车辆工程与技术方案</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-card-image">
+                        <img src="images/member-4.jpg" alt="首席车手">
+                    </div>
+                    <div class="team-card-content">
+                        <h4>王梓轩</h4>
+                        <span class="team-card-role">首席车手</span>
+                        <p>G1 | 赛道驾驶与比赛策略</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-card-image">
+                        <img src="images/member-2.jpg" alt="运营总监">
+                    </div>
+                    <div class="team-card-content">
+                        <h4>陈思雨</h4>
+                        <span class="team-card-role">运营总监</span>
+                        <p>G1 | 宣传推广与赞助洽谈</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="team.html" class="btn btn-outline">查看完整团队 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 赞助合作 -->
+    <section class="section" id="sponsors">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">SPONSORSHIP</span>
+                <h2 class="section-title">赞助合作</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="sponsor-cards">
+                <div class="sponsor-card reveal">
+                    <h3 class="sponsor-tier">基础支持</h3>
+                    <div class="sponsor-price">¥1,000</div>
+                    <ul class="sponsor-features">
+                        <li><i class="fas fa-check"></i> 赛车车壳Logo展示</li>
+                        <li><i class="fas fa-check"></i> 赛事社群感谢提及</li>
+                        <li><i class="fas fa-check"></i> 网站赞助商墙展示</li>
+                        <li><i class="fas fa-check"></i> 赛季总结报告</li>
+                    </ul>
+                    <a href="sponsors.html" class="btn btn-outline">成为赞助商</a>
+                </div>
+                <div class="sponsor-card featured reveal">
+                    <h3 class="sponsor-tier">核心伙伴</h3>
+                    <div class="sponsor-price">¥3,000</div>
+                    <ul class="sponsor-features">
+                        <li><i class="fas fa-check"></i> <strong>所有基础权益</strong></li>
+                        <li><i class="fas fa-check"></i> 队服显著位置Logo</li>
+                        <li><i class="fas fa-check"></i> 比赛PPT及展台核心展示</li>
+                        <li><i class="fas fa-check"></i> 专属技术交流机会</li>
+                        <li><i class="fas fa-check"></i> 未来赛事优先赞助权</li>
+                    </ul>
+                    <a href="sponsors.html" class="btn btn-gold">成为核心伙伴</a>
+                </div>
+                <div class="sponsor-card reveal">
+                    <h3 class="sponsor-tier">战略合作</h3>
+                    <div class="sponsor-price">定制</div>
+                    <ul class="sponsor-features">
+                        <li><i class="fas fa-check"></i> <strong>所有核心伙伴权益</strong></li>
+                        <li><i class="fas fa-check"></i> 联合技术开发与测试</li>
+                        <li><i class="fas fa-check"></i> 品牌故事深度整合</li>
+                        <li><i class="fas fa-check"></i> 长期品牌共建规划</li>
+                        <li><i class="fas fa-check"></i> 定制化回报方案</li>
+                    </ul>
+                    <a href="sponsors.html" class="btn btn-outline">洽谈合作</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 加入我们 -->
-    <section id="join" class="py-20 bg-dark relative">
-        <div class="absolute inset-0 z-0">
-            <img src="https://picsum.photos/id/1070/1920/1080" alt="加入我们背景" class="w-full h-full object-cover opacity-20">
-        </div>
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">加入我们</h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
-                <p class="mt-4 text-lg max-w-2xl mx-auto">
-                    无论你是RC赛车老手，还是零基础的新手，只要你热爱赛车，我们都欢迎你的加入！
-                </p>
-            </div>
-            <div class="max-w-3xl mx-auto bg-secondary/40 rounded-lg p-8 shadow-xl">
-                <form id="joinForm" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block mb-2 text-lg">姓名</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 bg-dark/80 border border-gray-600 rounded-lg focus:outline-none focus:border-primary" placeholder="请输入你的姓名">
-                        </div>
-                        <div>
-                            <label for="grade" class="block mb-2 text-lg">年级/班级</label>
-                            <input type="text" id="grade" class="w-full px-4 py-3 bg-dark/80 border border-gray-600 rounded-lg focus:outline-none focus:border-primary" placeholder="如：高一G1班">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="contact" class="block mb-2 text-lg">联系方式</label>
-                        <input type="text" id="contact" class="w-full px-4 py-3 bg-dark/80 border border-gray-600 rounded-lg focus:outline-none focus:border-primary" placeholder="微信/电话">
-                    </div>
-                    <div>
-                        <label for="experience" class="block mb-2 text-lg">RC赛车经验</label>
-                        <select id="experience" class="w-full px-4 py-3 bg-dark/80 border border-gray-600 rounded-lg focus:outline-none focus:border-primary">
-                            <option value="">请选择</option>
-                            <option value="0">零基础</option>
-                            <option value="1">入门级（1年以内）</option>
-                            <option value="2">进阶级（1-3年）</option>
-                            <option value="3">资深级（3年以上）</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="reason" class="block mb-2 text-lg">加入理由/期望</label>
-                        <textarea id="reason" rows="4" class="w-full px-4 py-3 bg-dark/80 border border-gray-600 rounded-lg focus:outline-none focus:border-primary" placeholder="请简述你想加入社团的原因或对社团的期望"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="px-8 py-3 bg-primary text-light rounded-full font-semibold hover-scale text-lg">
-                            提交申请
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- 联系我们 -->
-    <section id="contact" class="py-20 bg-secondary/20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">联系我们</h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6 text-primary">联系方式</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <i class="fa-solid fa-location-dot text-primary text-2xl w-8 text-center"></i>
-                            <div>
-                                <h4 class="text-lg font-medium">社团活动室</h4>
-                                <p class="text-gray-300">深国交活动室A</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <i class="fa-solid fa-clock text-primary text-2xl w-8 text-center"></i>
-                            <div>
-                                <h4 class="text-lg font-medium">活动时间</h4>
-                                <p class="text-gray-300">每周五下午 16:00-18:00</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <i class="fa-solid fa-envelope text-primary text-2xl w-8 text-center"></i>
-                            <div>
-                                <h4 class="text-lg font-medium">邮箱</h4>
-                                <p class="text-gray-300">s23393.sun@stu.scie.com.cn</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h4 class="text-lg font-medium mb-4">关注我们</h4>
-                        <div class="flex gap-6">
-                            <a href="#" class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors">
-                                <i class="fa-brands fa-weixin text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors">
-                                <i class="fa-brands fa-instagram text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors">
-                                <i class="fa-brands fa-tiktok text-xl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <!-- 这里可以替换为真实的社团活动室地图 -->
-                    <div class="rounded-lg overflow-hidden shadow-lg hover-scale">
-                        <img src="https://picsum.photos/id/1019/800/600" alt="社团位置地图" class="w-full">
-                    </div>
-                </div>
+    <!-- 加入我们CTA -->
+    <section class="section join-cta" id="join">
+        <div class="container">
+            <div class="reveal">
+                <h2>准备好加入这场速度革命了吗？</h2>
+                <p>无论你是技术大神还是零基础小白，这里都有你的位置</p>
+                <a href="join.html" class="btn btn-primary btn-lg">立即申请</a>
             </div>
         </div>
     </section>
 
     <!-- 页脚 -->
-    <footer class="bg-dark py-8 border-t border-primary/30">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <div class="flex items-center gap-2 justify-center md:justify-start">
-                        <i class="fa-solid fa-car-side text-primary text-2xl"></i>
-                        <span class="text-xl font-bold">Apex Racing</span>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-text">APEX <span>RACING</span></div>
+                    <p>Precision, Partnership, Perseverance.<br>深国交学生工程赛车团队。</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-bilibili"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
                     </div>
-                    <p class="text-gray-400 mt-2 text-center md:text-left">深国交RC赛车社团 © 2026 版权所有</p>
                 </div>
-                <div class="text-gray-400">
-                    <p>设计与维护：Apex Racing 宣传组</p>
+                <div class="footer-links-section">
+                    <h4 class="footer-title">快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cars/apex-04.html">赛车展示</a></li>
+                        <li><a href="racing/index.html">赛事实绩</a></li>
+                        <li><a href="team.html">核心成员</a></li>
+                    </ul>
                 </div>
+                <div class="footer-links-section">
+                    <h4 class="footer-title">资源</h4>
+                    <ul class="footer-links">
+                        <li><a href="tech/index.html">技术博客</a></li>
+                        <li><a href="#">知识库</a></li>
+                        <li><a href="#">校友网络</a></li>
+                        <li><a href="sponsors.html">赞助合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-section">
+                    <h4 class="footer-title">联系我们</h4>
+                    <p><i class="fas fa-envelope"></i> contact@apexracing.com</p>
+                    <p><i class="fas fa-globe"></i> <a href="https://apexracing-scie.github.io/" target="_blank">https://apexracing-scie.github.io/</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> 深圳国际交流书院</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Apex Racing. 保留所有权利。 | 设计与维护：Apex Racing 宣传组</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-        // 导航栏滚动效果
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('py-2', 'shadow-lg');
-                navbar.classList.remove('py-3');
-            } else {
-                navbar.classList.add('py-3');
-                navbar.classList.remove('py-2', 'shadow-lg');
-            }
-        });
-
-        // 移动端菜单
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            // 切换菜单图标
-            const icon = menuBtn.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-
-                    // 关闭移动端菜单
-                    mobileMenu.classList.add('hidden');
-                    const icon = menuBtn.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-        });
-
-        // 表单提交
-        const joinForm = document.getElementById('joinForm');
-        joinForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // 简单表单验证
-            const name = document.getElementById('name').value;
-            const grade = document.getElementById('grade').value;
-            const contact = document.getElementById('contact').value;
-
-            if (!name || !grade || !contact) {
-                alert('请填写必填字段（姓名、年级/班级、联系方式）！');
-                return;
-            }
-
-            // 模拟提交成功
-            alert('申请提交成功！我们会尽快联系你～');
-            joinForm.reset();
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
 </html>
