@@ -7,14 +7,16 @@
       "tech": "技术中心",
       "racing": "赛事实绩",
       "team": "核心成员",
-      "join": "加入我们"
+      "join": "加入我们",
+      "contact": "联系我们",
+      "sponsors": "赞助合作"
     },
     "hero": {
-      "title": "Apex Racing",
+      "title": "APEX RACING",
       "subtitle": "深国交赛车工程团队",
-      "description": "华南最专业的中学生RC赛车社团",
-      "cta_join": "加入我们",
-      "cta_events": "查看赛事"
+      "tagline": "Precision. Partnership. Perseverance.",
+      "cta_explore": "探索我们的赛车",
+      "cta_join": "加入我们"
     },
     "stats": {
       "national_rank": "全国赛排名",
@@ -25,34 +27,87 @@
     "about": {
       "title": "关于我们",
       "subtitle": "深国交最具专业度的赛车工程社团",
-      "description": "Apex Racing起源于深国交的RC俱乐部，由一群对赛车工程充满热情的学生组建。",
-      "story": "面对去年NSL赛事因机械故障DNF的挫折，我们没有放弃。本学期，我们通过系统性的工程改进——从电子升级到精密调校——实现了车辆稳定性的突破，最终在全国赛场获得活塞组亚军及多项单项奖。"
+      "description": "Apex Racing起源于深国交的RC俱乐部，由一群对赛车工程充满热情的学生组建。我们不仅是遥控车爱好者，更是致力于将STEM知识应用于实践的学生工程师。",
+      "story": "面对去年NSL赛事因机械故障DNF的挫折，我们没有放弃。本学期，我们通过系统性的工程改进——从电子升级到精密调校——实现了车辆稳定性的突破，最终在全国赛场获得活塞组亚军及多项单项奖。",
+      "stats_members": "社团成员",
+      "stats_events": "年度赛事",
+      "stats_partnerships": "校外合作"
     },
     "events": {
       "title": "赛事活动",
-      "subtitle": "记录每一次的速度对决",
+      "subtitle": "记录每一次的速度对决，见证每一个精彩瞬间",
       "status": {
         "ended": "已结束",
         "ongoing": "进行中",
         "upcoming": "即将开始"
-      }
+      },
+      "learn_more": "了解更多",
+      "view_details": "查看详情",
+      "view_all": "查看更多赛事"
     },
     "team": {
       "title": "核心成员",
-      "subtitle": "每个人都是系统中不可或缺的节点",
-      "role": "团长",
-      "grade": "高三",
-      "responsibility": "竞速组负责人"
+      "subtitle": "每个人都是系统中不可或缺的共振节点",
+      "role_leader": "团长",
+      "role_tech": "技术总监",
+      "role_driver": "首席车手",
+      "role_operations": "运营总监",
+      "view_full_team": "查看完整团队"
+    },
+    "sponsors": {
+      "title": "赞助合作",
+      "subtitle": "与Apex Racing携手，共同见证速度与激情",
+      "tier_basic": "基础支持",
+      "tier_core": "核心伙伴",
+      "tier_strategic": "战略合作",
+      "price_basic": "¥1,000",
+      "price_core": "¥3,000",
+      "price_strategic": "定制",
+      "cta_sponsor": "成为赞助商",
+      "cta_partner": "成为核心伙伴",
+      "cta_discuss": "洽谈合作"
+    },
+    "join": {
+      "title": "加入我们",
+      "subtitle": "无论你是RC赛车老手，还是零基础的新手，只要你热爱赛车，我们都欢迎你的加入！",
+      "form_name": "姓名",
+      "form_grade": "年级/班级",
+      "form_contact": "联系方式",
+      "form_experience": "RC赛车经验",
+      "form_reason": "加入理由/期望",
+      "experience_0": "零基础",
+      "experience_1": "入门级（1年以内）",
+      "experience_2": "进阶级（1-3年）",
+      "experience_3": "资深级（3年以上）",
+      "submit": "提交申请",
+      "placeholder_name": "请输入你的姓名",
+      "placeholder_grade": "如：高一G1班",
+      "placeholder_contact": "微信/电话",
+      "placeholder_reason": "请简述你想加入社团的原因或对社团的期望"
     },
     "contact": {
       "title": "联系我们",
-      "location": "深国交活动室A",
-      "email": "邮箱",
-      "follow_us": "关注我们"
+      "subtitle": "期待与你的交流",
+      "location_title": "社团活动室",
+      "location_value": "深国交活动室A",
+      "time_title": "活动时间",
+      "time_value": "每周五下午 16:00-18:00",
+      "email_title": "邮箱",
+      "follow_title": "关注我们"
     },
     "footer": {
+      "quick_links": "快速链接",
+      "resources": "资源",
+      "contact_us": "联系我们",
       "copyright": "深国交RC赛车社团 © 2026 版权所有",
       "credits": "设计与维护：Apex Racing 宣传组"
+    },
+    "common": {
+      "read_more": "阅读更多",
+      "learn_more": "了解更多",
+      "view_details": "查看详情",
+      "coming_soon": "即将推出",
+      "back_to_top": "返回顶部"
     }
   },
   "en": {
@@ -63,14 +118,16 @@
       "tech": "Tech",
       "racing": "Racing",
       "team": "Team",
-      "join": "Join Us"
+      "join": "Join Us",
+      "contact": "Contact",
+      "sponsors": "Sponsors"
     },
     "hero": {
-      "title": "Apex Racing",
+      "title": "APEX RACING",
       "subtitle": "SCIE Racing Engineering Team",
-      "description": "South China's Premier Student RC Racing Team",
-      "cta_join": "Join Us",
-      "cta_events": "View Events"
+      "tagline": "Precision. Partnership. Perseverance.",
+      "cta_explore": "Explore Our Cars",
+      "cta_join": "Join Us"
     },
     "stats": {
       "national_rank": "National Rank",
@@ -81,34 +138,87 @@
     "about": {
       "title": "About Us",
       "subtitle": "SCIE's Most Professional Racing Engineering Club",
-      "description": "Apex Racing originated from SCIE's RC Club, founded by students passionate about racing engineering.",
-      "story": "After a DNF at last year's NSL due to mechanical failure, we didn't give up. Through systematic engineering improvements—from electronics upgrades to precision tuning—we achieved a breakthrough in vehicle stability, ultimately winning 2nd place in the Pioneer class and multiple individual awards at the national competition."
+      "description": "Apex Racing originated from SCIE's RC Club, founded by students passionate about racing engineering. We are not just RC car enthusiasts, but student engineers dedicated to applying STEM knowledge in practice.",
+      "story": "After a DNF at last year's NSL due to mechanical failure, we didn't give up. Through systematic engineering improvements—from electronics upgrades to precision tuning—we achieved a breakthrough in vehicle stability, ultimately winning 2nd place in the Pioneer class and multiple individual awards at the national competition.",
+      "stats_members": "Club Members",
+      "stats_events": "Annual Events",
+      "stats_partnerships": "Partnerships"
     },
     "events": {
       "title": "Events",
-      "subtitle": "Recording Every Speed Challenge",
+      "subtitle": "Recording Every Speed Challenge, Witnessing Every Brilliant Moment",
       "status": {
         "ended": "Ended",
         "ongoing": "Ongoing",
         "upcoming": "Upcoming"
-      }
+      },
+      "learn_more": "Learn More",
+      "view_details": "View Details",
+      "view_all": "View All Events"
     },
     "team": {
       "title": "Core Team",
-      "subtitle": "Everyone is an indispensable node in the system",
-      "role": "Team Leader",
-      "grade": "G2",
-      "responsibility": "Racing Director"
+      "subtitle": "Everyone is an indispensable resonance node in the system",
+      "role_leader": "Team Leader",
+      "role_tech": "Technical Director",
+      "role_driver": "Lead Driver",
+      "role_operations": "Operations Director",
+      "view_full_team": "View Full Team"
+    },
+    "sponsors": {
+      "title": "Sponsorship",
+      "subtitle": "Partner with Apex Racing to Witness Speed and Passion",
+      "tier_basic": "Basic Support",
+      "tier_core": "Core Partner",
+      "tier_strategic": "Strategic Partner",
+      "price_basic": "¥1,000",
+      "price_core": "¥3,000",
+      "price_strategic": "Custom",
+      "cta_sponsor": "Become a Sponsor",
+      "cta_partner": "Become a Core Partner",
+      "cta_discuss": "Discuss Partnership"
+    },
+    "join": {
+      "title": "Join Us",
+      "subtitle": "Whether you're an experienced RC racer or a complete beginner, as long as you love racing, you're welcome to join us!",
+      "form_name": "Name",
+      "form_grade": "Grade/Class",
+      "form_contact": "Contact",
+      "form_experience": "RC Experience",
+      "form_reason": "Reason/Expectations",
+      "experience_0": "No Experience",
+      "experience_1": "Beginner (Less than 1 year)",
+      "experience_2": "Intermediate (1-3 years)",
+      "experience_3": "Advanced (3+ years)",
+      "submit": "Submit Application",
+      "placeholder_name": "Enter your name",
+      "placeholder_grade": "e.g., G1 Class",
+      "placeholder_contact": "WeChat/Phone",
+      "placeholder_reason": "Briefly describe why you want to join or your expectations"
     },
     "contact": {
       "title": "Contact Us",
-      "location": "SCIE Activity Room A",
-      "email": "Email",
-      "follow_us": "Follow Us"
+      "subtitle": "Looking forward to hearing from you",
+      "location_title": "Club Room",
+      "location_value": "SCIE Activity Room A",
+      "time_title": "Activity Time",
+      "time_value": "Every Friday 16:00-18:00",
+      "email_title": "Email",
+      "follow_title": "Follow Us"
     },
     "footer": {
+      "quick_links": "Quick Links",
+      "resources": "Resources",
+      "contact_us": "Contact Us",
       "copyright": "SCIE RC Racing Club © 2026 All Rights Reserved",
       "credits": "Design & Maintenance: Apex Racing Media Team"
+    },
+    "common": {
+      "read_more": "Read More",
+      "learn_more": "Learn More",
+      "view_details": "View Details",
+      "coming_soon": "Coming Soon",
+      "back_to_top": "Back to Top"
     }
   }
 }

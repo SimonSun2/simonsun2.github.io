@@ -1,4 +1,4 @@
-// i18n.js - 多语言支持
+// i18n.js - 多语言支持（增强版）
 class I18n {
   constructor() {
     this.currentLang = localStorage.getItem('lang') || 'zh';
@@ -12,6 +12,7 @@ class I18n {
       this.translations = await response.json();
       this.updatePage();
       this.createLangSwitcher();
+      this.autoTranslate();
     } catch (error) {
       console.error('Failed to load translations:', error);
     }
@@ -23,6 +24,7 @@ class I18n {
       localStorage.setItem('lang', lang);
       this.updatePage();
       this.updateLangSwitcher();
+      this.autoTranslate();
     }
   }
 
@@ -58,8 +60,81 @@ class I18n {
     document.documentElement.lang = this.currentLang === 'zh' ? 'zh-CN' : 'en';
   }
 
+  // 自动翻译常见文本
+  autoTranslate() {
+    if (this.currentLang === 'zh') return; // 中文是默认语言
+
+    const translations = {
+      // 导航
+      '首页': 'Home',
+      '关于我们': 'About',
+      '赛车展示': 'Cars',
+      '技术中心': 'Tech',
+      '赛事实绩': 'Racing',
+      '核心成员': 'Team',
+      '加入我们': 'Join',
+      '联系我们': 'Contact',
+      '赞助合作': 'Sponsors',
+      
+      // 常见按钮
+      '了解更多': 'Learn More',
+      '查看详情': 'View Details',
+      '查看更多': 'View More',
+      '查看全部': 'View All',
+      '立即申请': 'Apply Now',
+      '提交申请': 'Submit',
+      '复制邮箱': 'Copy Email',
+      
+      // 状态标签
+      '已结束': 'Ended',
+      '进行中': 'Ongoing',
+      '即将开始': 'Upcoming',
+      '即将推出': 'Coming Soon',
+      
+      // 页脚
+      '快速链接': 'Quick Links',
+      '联系我们': 'Contact Us',
+      '关注我们': 'Follow Us',
+      '资源': 'Resources',
+      
+      // 表单
+      '姓名': 'Name',
+      '年级': 'Grade',
+      '班级': 'Class',
+      '联系方式': 'Contact',
+      '邮箱': 'Email',
+      '电话': 'Phone',
+      '提交': 'Submit',
+      '取消': 'Cancel',
+      
+      // 社团相关
+      '社团活动室': 'Club Room',
+      '活动时间': 'Activity Time',
+      '设计与维护': 'Design & Maintenance'
+    };
+
+    // 遍历所有文本节点进行翻译
+    this.translateTextNodes(document.body, translations);
+  }
+
+  translateTextNodes(element, translations) {
+    const walker = document.createTreeWalker(
+      element,
+      NodeFilter.SHOW_TEXT,
+      null,
+      false
+    );
+
+    let node;
+    while (node = walker.nextNode()) {
+      const text = node.textContent.trim();
+      if (translations[text]) {
+        node.textContent = node.textContent.replace(text, translations[text]);
+      }
+    }
+  }
+
   createLangSwitcher() {
-    // 检查是否已存在切换器
     if (document.querySelector('.lang-switcher')) return;
 
     const switcher = document.createElement('div');
@@ -84,7 +159,6 @@ class I18n {
       });
     });
 
-    // 添加样式
     this.addStyles();
   }
 
@@ -115,11 +189,12 @@ class I18n {
         border-radius: 4px;
         cursor: pointer;
         font-size: 14px;
+        font-weight: 600;
         transition: all 0.3s ease;
       }
       
       .lang-btn:hover {
-        background: rgba(184, 134, 11, 0.1);
+        background: rgba(184, 134, 11, 0.2);
         color: var(--color-accent-gold, #B8860B);
       }
       
@@ -130,6 +205,7 @@ class I18n {
       
       .lang-divider {
         color: var(--color-text-secondary, #666);
+        font-weight: 300;
       }
       
       @media (max-width: 768px) {
