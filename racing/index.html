@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛事实绩 | Apex Racing - 荣誉与征程</title>
+    <meta name="description" content="Apex Racing参赛历史与成绩记录。NSL全国赛、华南锦标赛、校际友谊赛等赛事的详细回顾。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .page-hero {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url('../images/racing-event.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+        }
+        
+        .page-hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .page-hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            margin-bottom: 16px;
+        }
+        
+        .page-hero p {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+        }
+        
+        /* 统计卡片 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+        
+        .stat-card {
+            background: var(--color-bg-secondary);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-card-value {
+            font-family: var(--font-mono);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-accent-gold);
+            margin-bottom: 8px;
+        }
+        
+        .stat-card-label {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+        
+        /* 筛选标签 */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-tab {
+            padding: 10px 24px;
+            background: transparent;
+            border: 1px solid var(--color-border);
+            border-radius: 20px;
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--color-accent-gold);
+            border-color: var(--color-accent-gold);
+            color: var(--color-bg-primary);
+        }
+        
+        /* 赛事时间轴 */
+        .racing-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .racing-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--color-accent-gold);
+        }
+        
+        .racing-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .racing-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .racing-date {
+            width: 120px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--color-accent-gold);
+            padding: 0 20px;
+        }
+        
+        .racing-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--color-accent-gold);
+            border-radius: 50%;
+            border: 3px solid var(--color-bg-primary);
+        }
+        
+        .racing-content {
+            flex: 1;
+            background: var(--color-bg-secondary);
+            padding: 24px;
+            border-radius: 12px;
+            margin: 0 20px;
+        }
+        
+        .racing-content .tag {
+            margin-bottom: 12px;
+        }
+        
+        .racing-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .racing-content p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .racing-awards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .racing-award {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--color-accent-gold);
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .racing-timeline::before {
+                left: 20px;
+            }
+            
+            .racing-item,
+            .racing-item:nth-child(odd) {
+                flex-direction: column;
+                padding-left: 50px;
+            }
+            
+            .racing-date {
+                text-align: left;
+                padding: 0;
+                margin-bottom: 8px;
+            }
+            
+            .racing-content {
+                margin: 0;
+            }
+            
+            .racing-dot {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-car-side logo-icon"></i>
+                <span class="logo-text">APEX <span>RACING</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../about.html">关于我们</a></li>
+                <li><a href="../cars/apex-04.html">赛车展示</a></li>
+                <li><a href="../tech/index.html">技术中心</a></li>
+                <li><a href="index.html" class="active">赛事实绩</a></li>
+                <li><a href="../team.html">核心成员</a></li>
+                <li><a href="../join.html" class="btn btn-primary nav-cta">加入我们</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <a href="../index.html">首页</a>
+        <a href="../about.html">关于我们</a>
+        <a href="../cars/apex-04.html">赛车展示</a>
+        <a href="../tech/index.html">技术中心</a>
+        <a href="index.html">赛事实绩</a>
+        <a href="../team.html">核心成员</a>
+        <a href="../join.html">加入我们</a>
+    </div>
+
+    <!-- 页面Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>赛事实绩</h1>
+            <p>记录每一次的速度对决，见证每一个精彩瞬间</p>
+        </div>
+    </section>
+
+    <!-- 统计数据 -->
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card reveal">
+                    <div class="stat-card-value" data-counter data-target="15">15</div>
+                    <div class="stat-card-label">总参赛次数</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-card-value" data-counter data-target="5">5</div>
+                    <div class="stat-card-label">冠军次数</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-card-value" data-counter data-target="12">12</div>
+                    <div class="stat-card-label">领奖台次数</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-card-value" data-counter data-target="8" data-suffix=".52">8.52</div>
+                    <div class="stat-card-label">最快圈速(秒)</div>
+                </div>
+            </div>
+            
+            <!-- 筛选标签 -->
+            <div class="filter-tabs">
+                <button class="filter-tab active">全部</button>
+                <button class="filter-tab">已结束</button>
+                <button class="filter-tab">进行中</button>
+                <button class="filter-tab">即将开始</button>
+            </div>
+            
+            <!-- 赛事时间轴 -->
+            <div class="racing-timeline">
+                <div class="racing-item reveal">
+                    <div class="racing-date">2026.02</div>
+                    <div class="racing-dot"></div>
+                    <div class="racing-content">
+                        <span class="tag tag-red">已结束</span>
+                        <h3>NSL全国高中生赛车联赛 - 上海站</h3>
+                        <p> piston组比赛，全国顶尖中学生车队同台竞技</p>
+                        <div class="racing-awards">
+                            <span class="racing-award"><i class="fas fa-trophy"></i> 活塞组亚军</span>
+                            <span class="racing-award"><i class="fas fa-award"></i> 最具商业力奖</span>
+                            <span class="racing-award"><i class="fas fa-award"></i> 最佳Presentation奖</span>
+                            <span class="racing-award"><i class="fas fa-award"></i> 最佳协作奖</span>
+                        </div>
+                        <a href="nsl-2026-shanghai.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">查看详情</a>
+                    </div>
+                </div>
+                
+                <div class="racing-item reveal">
+                    <div class="racing-date">2026.04</div>
+                    <div class="racing-dot"></div>
+                    <div class="racing-content">
+                        <span class="tag tag-green">进行中</span>
+                        <h3>深国交校园科技展</h3>
+                        <p>展示本赛季赛车与技术成果，与校内师生交流互动</p>
+                        <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">立即报名观展</a>
+                    </div>
+                </div>
+                
+                <div class="racing-item reveal">
+                    <div class="racing-date">2026.05</div>
+                    <div class="racing-dot"></div>
+                    <div class="racing-content">
+                        <span class="tag tag-blue">即将开始</span>
+                        <h3>校际友谊赛（vs深外）</h3>
+                        <p>与深圳外国语学校RC社团联合举办</p>
+                        <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">了解规则</a>
+                    </div>
+                </div>
+                
+                <div class="racing-item reveal">
+                    <div class="racing-date">2025.12</div>
+                    <div class="racing-dot"></div>
+                    <div class="racing-content">
+                        <span class="tag tag-red">已结束</span>
+                        <h3>华南区RC锦标赛</h3>
+                        <p>区域最高级别赛事，多省市强队参赛</p>
+                        <div class="racing-awards">
+                            <span class="racing-award"><i class="fas fa-trophy"></i> 冠军</span>
+                            <span class="racing-award"><i class="fas fa-clock"></i> 赛道纪录</span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">查看详情</a>
+                    </div>
+                </div>
+                
+                <div class="racing-item reveal">
+                    <div class="racing-date">2025.06</div>
+                    <div class="racing-dot"></div>
+                    <div class="racing-content">
+                        <span class="tag tag-red">已结束</span>
+                        <h3>深圳市中学生邀请赛</h3>
+                        <p>市内各中学RC社团友谊交流赛</p>
+                        <div class="racing-awards">
+                            <span class="racing-award"><i class="fas fa-medal"></i> 季军</span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">查看详情</a>
+                    </div>
+                </div>
+                
+                <div class="racing-item reveal">
+                    <div class="racing-date">2024.11</div>
+                    <div class="racing-dot"></div>
+                    <div class="racing-content">
+                        <span class="tag tag-red">已结束</span>
+                        <h3>校内秋季赛</h3>
+                        <p>深国交年度校内RC竞速赛</p>
+                        <div class="racing-awards">
+                            <span class="racing-award"><i class="fas fa-trophy"></i> 冠军</span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-text">APEX <span>RACING</span></div>
+                    <p>Precision, Partnership, Perseverance.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-bilibili"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-section">
+                    <h4 class="footer-title">快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../about.html">关于我们</a></li>
+                        <li><a href="../cars/apex-04.html">赛车展示</a></li>
+                        <li><a href="index.html">赛事实绩</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-section">
+                    <h4 class="footer-title">联系我们</h4>
+                    <p><i class="fas fa-envelope"></i> contact@apexracing.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 深圳国际交流书院</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Apex Racing. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
