@@ -582,6 +582,53 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* 线框图头像样式 */
+        .wireframe-avatar {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border: 2px solid var(--color-accent-gold);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wireframe-avatar::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--color-accent-gold);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        
+        .wireframe-avatar::after {
+            content: '';
+            position: absolute;
+            top: 42%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 65px;
+            border: 2px solid var(--color-accent-gold);
+            border-radius: 50% 50% 0 0;
+            opacity: 0.4;
+        }
+        
+        .wireframe-avatar i {
+            font-size: 40px;
+            color: var(--color-accent-gold);
+            opacity: 0.5;
+            z-index: 1;
+        }
     </style>
 
 <body>
@@ -834,7 +881,9 @@
             <div class="team-grid">
                 <div class="team-card reveal">
                     <div class="team-card-image">
-                        <img src="images/member-1.jpg" alt="团长">
+                        <div class="wireframe-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
                     </div>
                     <div class="team-card-content">
                         <h4>Donovan</h4>
