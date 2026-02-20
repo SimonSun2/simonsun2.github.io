@@ -303,6 +303,7 @@ body {
 
 .nav-cta {
     margin-left: 16px;
+    padding: 10px 32px !important;
 }
 
 /* 移动端菜单按钮 */
