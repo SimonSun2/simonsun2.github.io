@@ -1,137 +1,114 @@
-// i18n.js - 多语言支持（增强版）
+// i18n.js - 简化的语言切换（使用浏览器/Google翻译）
 class I18n {
   constructor() {
     this.currentLang = localStorage.getItem('lang') || 'zh';
-    this.translations = {};
     this.init();
   }
 
-  async init() {
-    try {
-      const response = await fetch('js/i18n.json');
-      this.translations = await response.json();
-      this.updatePage();
-      this.createLangSwitcher();
-      this.autoTranslate();
-    } catch (error) {
-      console.error('Failed to load translations:', error);
+  init() {
+    this.createLangSwitcher();
+    
+    // 如果之前选择了英文，自动触发翻译
+    if (this.currentLang === 'en') {
+      this.translateToEnglish();
     }
   }
 
   setLang(lang) {
-    if (this.translations[lang]) {
-      this.currentLang = lang;
-      localStorage.setItem('lang', lang);
-      this.updatePage();
-      this.updateLangSwitcher();
-      this.autoTranslate();
+    this.currentLang = lang;
+    localStorage.setItem('lang', lang);
+    this.updateLangSwitcher();
+    
+    if (lang === 'en') {
+      this.translateToEnglish();
+    } else {
+      this.restoreChinese();
     }
   }
 
-  t(key) {
-    const keys = key.split('.');
-    let value = this.translations[this.currentLang];
-    for (const k of keys) {
-      value = value?.[k];
-      if (value === undefined) return key;
+  translateToEnglish() {
+    // 方法1: 使用 Google Translate 嵌入
+    if (!document.getElementById('google-translate')) {
+      this.loadGoogleTranslate();
     }
-    return value;
+    
+    // 方法2: 提示用户使用浏览器翻译
+    this.showTranslateHint();
   }
 
-  updatePage() {
-    // 更新所有带有 data-i18n 属性的元素
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      const translation = this.t(key);
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = translation;
-      } else {
-        el.textContent = translation;
-      }
-    });
-
-    // 更新页面标题
-    const titleEl = document.querySelector('title[data-i18n]');
-    if (titleEl) {
-      document.title = this.t(titleEl.getAttribute('data-i18n'));
-    }
-
-    // 更新 HTML lang 属性
-    document.documentElement.lang = this.currentLang === 'zh' ? 'zh-CN' : 'en';
-  }
-
-  // 自动翻译常见文本
-  autoTranslate() {
-    if (this.currentLang === 'zh') return; // 中文是默认语言
-
-    const translations = {
-      // 导航
-      '首页': 'Home',
-      '关于我们': 'About',
-      '赛车展示': 'Cars',
-      '技术中心': 'Tech',
-      '赛事实绩': 'Racing',
-      '核心成员': 'Team',
-      '加入我们': 'Join',
-      '联系我们': 'Contact',
-      '赞助合作': 'Sponsors',
-      
-      // 常见按钮
-      '了解更多': 'Learn More',
-      '查看详情': 'View Details',
-      '查看更多': 'View More',
-      '查看全部': 'View All',
-      '立即申请': 'Apply Now',
-      '提交申请': 'Submit',
-      '复制邮箱': 'Copy Email',
-      
-      // 状态标签
-      '已结束': 'Ended',
-      '进行中': 'Ongoing',
-      '即将开始': 'Upcoming',
-      '即将推出': 'Coming Soon',
-      
-      // 页脚
-      '快速链接': 'Quick Links',
-      '联系我们': 'Contact Us',
-      '关注我们': 'Follow Us',
-      '资源': 'Resources',
-      
-      // 表单
-      '姓名': 'Name',
-      '年级': 'Grade',
-      '班级': 'Class',
-      '联系方式': 'Contact',
-      '邮箱': 'Email',
-      '电话': 'Phone',
-      '提交': 'Submit',
-      '取消': 'Cancel',
-      
-      // 社团相关
-      '社团活动室': 'Club Room',
-      '活动时间': 'Activity Time',
-      '设计与维护': 'Design & Maintenance'
+  loadGoogleTranslate() {
+    const script = document.createElement('script');
+    script.id = 'google-translate';
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.head.appendChild(script);
+    
+    window.googleTranslateElementInit = () => {
+      new google.translate.TranslateElement({
+        pageLanguage: 'zh-CN',
+        includedLanguages: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google-translate-container');
     };
-
-    // 遍历所有文本节点进行翻译
-    this.translateTextNodes(document.body, translations);
   }
 
-  translateTextNodes(element, translations) {
-    const walker = document.createTreeWalker(
-      element,
-      NodeFilter.SHOW_TEXT,
-      null,
-      false
-    );
-
-    let node;
-    while (node = walker.nextNode()) {
-      const text = node.textContent.trim();
-      if (translations[text]) {
-        node.textContent = node.textContent.replace(text, translations[text]);
-      }
+  showTranslateHint() {
+    // 创建提示条
+    let hint = document.getElementById('translate-hint');
+    if (!hint) {
+      hint = document.createElement('div');
+      hint.id = 'translate-hint';
+      hint.innerHTML = `
+        <div style="
+          position: fixed;
+          top: 80px;
+          right: 20px;
+          background: rgba(184, 134, 11, 0.95);
+          color: #000;
+          padding: 12px 20px;
+          border-radius: 8px;
+          font-size: 14px;
+          z-index: 9999;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          max-width: 300px;
+        ">
+          <div style="font-weight: bold; margin-bottom: 4px;">🌐 切换到英文</div>
+          <div style="font-size: 12px; opacity: 0.9;">
+            请使用浏览器翻译功能：<br>
+            Chrome: 右键 → "翻译成英语"<br>
+            Safari: 地址栏 → 翻译图标
+          </div>
+          <button onclick="this.parentElement.parentElement.remove()" style="
+            margin-top: 8px;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+          ">知道了</button>
+        </div>
+      `;
+      document.body.appendChild(hint);
+      
+      // 3秒后自动消失
+      setTimeout(() => {
+        hint?.remove();
+      }, 8000);
     }
+  }
+
+  restoreChinese() {
+    // 移除 Google Translate
+    const gt = document.getElementById('google-translate');
+    if (gt) gt.remove();
+    
+    // 移除提示
+    const hint = document.getElementById('translate-hint');
+    if (hint) hint.remove();
+    
+    // 刷新页面恢复中文
+    location.reload();
   }
 
   createLangSwitcher() {
@@ -140,9 +117,13 @@ class I18n {
     const switcher = document.createElement('div');
     switcher.className = 'lang-switcher';
     switcher.innerHTML = `
-      <button class="lang-btn ${this.currentLang === 'zh' ? 'active' : ''}" data-lang="zh">中</button>
+      <button class="lang-btn ${this.currentLang === 'zh' ? 'active' : ''}" data-lang="zh" title="中文">
+        中
+      </button>
       <span class="lang-divider">|</span>
-      <button class="lang-btn ${this.currentLang === 'en' ? 'active' : ''}" data-lang="en">EN</button>
+      <button class="lang-btn ${this.currentLang === 'en' ? 'active' : ''}" data-lang="en" title="English (Auto Translate)">
+        EN
+      </button>
     `;
 
     // 添加到导航栏
@@ -216,6 +197,14 @@ class I18n {
           padding: 4px 8px;
           font-size: 12px;
         }
+      }
+      
+      /* Google Translate 样式覆盖 */
+      .goog-te-banner-frame {
+        display: none !important;
+      }
+      body {
+        top: 0 !important;
       }
     `;
     document.head.appendChild(styles);
