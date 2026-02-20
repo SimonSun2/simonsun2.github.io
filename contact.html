@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系我们 | Apex Racing</title>
+    <title data-i18n="contact.title">联系我们 | Apex Racing</title>
     <meta name="description" content="联系Apex Racing。一般咨询、商务合作、媒体采访，选择对应渠道，我们将在24小时内回复。">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -194,9 +194,9 @@
             <ul class="nav-links">
                 <li><a href="index.html" data-i18n="nav.home">首页</a></li>
                 <li><a href="about.html" data-i18n="nav.about">关于我们</a></li>
-                <li><a href="cars/apex-04.html">赛车展示</a></li>
-                <li><a href="tech/index.html">技术中心</a></li>
-                <li><a href="racing/index.html">赛事实绩</a></li>
+                <li><a href="cars/apex-04.html" data-i18n="nav.cars">赛车展示</a></li>
+                <li><a href="tech/index.html" data-i18n="nav.tech">技术中心</a></li>
+                <li><a href="racing/index.html" data-i18n="nav.racing">赛事实绩</a></li>
                 <li><a href="team.html" data-i18n="nav.team">核心成员</a></li>
                 <li><a href="join.html" data-i18n="nav.join" class="btn btn-primary nav-cta">加入我们</a></li>
             </ul>
@@ -210,9 +210,9 @@
         <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
         <a href="index.html" data-i18n="nav.home">首页</a>
         <a href="about.html" data-i18n="nav.about">关于我们</a>
-        <a href="cars/apex-04.html">赛车展示</a>
-        <a href="tech/index.html">技术中心</a>
-        <a href="racing/index.html">赛事实绩</a>
+        <a href="cars/apex-04.html" data-i18n="nav.cars">赛车展示</a>
+        <a href="tech/index.html" data-i18n="nav.tech">技术中心</a>
+        <a href="racing/index.html" data-i18n="nav.racing">赛事实绩</a>
         <a href="team.html" data-i18n="nav.team">核心成员</a>
         <a href="join.html" data-i18n="nav.join">加入我们</a>
     </div>
@@ -220,8 +220,8 @@
     <!-- 页面Hero -->
     <section class="page-hero">
         <div class="page-hero-content">
-            <h1>联系我们</h1>
-            <p>期待与你的交流</p>
+            <h1 data-i18n="contact.title">联系我们</h1>
+            <p data-i18n="contact.subtitle">期待与你的交流</p>
         </div>
     </section>
 
@@ -230,7 +230,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">CONTACT CHANNELS</span>
-                <h2 class="section-title">选择对应渠道</h2>
+                <h2 class="section-title" data-i18n="contact.channels_title">选择对应渠道</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="contact-cards">
@@ -238,28 +238,28 @@
                     <div class="contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
-                    <h3>一般咨询</h3>
+                    <h3 data-i18n="contact.channel_general">一般咨询</h3>
                     <p class="contact-email">info@apexracing.com</p>
-                    <p>社团活动、加入咨询、其他问题</p>
-                    <button class="btn btn-outline" onclick="copyToClipboard('info@apexracing.com', this)">复制邮箱</button>
+                    <p data-i18n="contact.channel_general_desc">社团活动、加入咨询、其他问题</p>
+                    <button class="btn btn-outline" onclick="copyToClipboard('info@apexracing.com', this)" data-i18n="contact.copy_email">复制邮箱</button>
                 </div>
                 <div class="contact-card reveal">
                     <div class="contact-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>商务合作</h3>
+                    <h3 data-i18n="contact.channel_business">商务合作</h3>
                     <p class="contact-email">s23393.sun@stu.scie.com.cn</p>
-                    <p>赞助洽谈、品牌合作、资源对接</p>
-                    <button class="btn btn-outline" onclick="copyToClipboard('s23393.sun@stu.scie.com.cn', this)">复制邮箱</button>
+                    <p data-i18n="contact.channel_business_desc">赞助洽谈、品牌合作、资源对接</p>
+                    <button class="btn btn-outline" onclick="copyToClipboard('s23393.sun@stu.scie.com.cn', this)" data-i18n="contact.copy_email">复制邮箱</button>
                 </div>
                 <div class="contact-card reveal">
                     <div class="contact-icon">
                         <i class="fas fa-microphone"></i>
                     </div>
-                    <h3>媒体采访</h3>
+                    <h3 data-i18n="contact.channel_media">媒体采访</h3>
                     <p class="contact-email">media@apexracing.com</p>
-                    <p>采访邀约、报道合作、内容授权</p>
-                    <button class="btn btn-outline" onclick="copyToClipboard('media@apexracing.com', this)">复制邮箱</button>
+                    <p data-i18n="contact.channel_media_desc">采访邀约、报道合作、内容授权</p>
+                    <button class="btn btn-outline" onclick="copyToClipboard('media@apexracing.com', this)" data-i18n="contact.copy_email">复制邮箱</button>
                 </div>
             </div>
         </div>
@@ -270,29 +270,29 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">SOCIAL MEDIA</span>
-                <h2 class="section-title">关注我们</h2>
+                <h2 class="section-title" data-i18n="contact.social_title">关注我们</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="social-grid">
                 <a href="#" class="social-card reveal">
                     <i class="fab fa-weixin"></i>
-                    <h4>微信公众号</h4>
-                    <span>Apex Racing深国交</span>
+                    <h4 data-i18n="contact.wechat">微信公众号</h4>
+                    <span data-i18n="contact.wechat_id">Apex Racing深国交</span>
                 </a>
                 <a href="#" class="social-card reveal">
                     <i class="fab fa-instagram"></i>
-                    <h4>Instagram</h4>
-                    <span>@apex_racing_scie</span>
+                    <h4 data-i18n="contact.instagram">Instagram</h4>
+                    <span data-i18n="contact.instagram_id">@apex_racing_scie</span>
                 </a>
                 <a href="#" class="social-card reveal">
                     <i class="fab fa-bilibili"></i>
-                    <h4>B站</h4>
-                    <span>ApexRacing官方</span>
+                    <h4 data-i18n="contact.bilibili">B站</h4>
+                    <span data-i18n="contact.bilibili_id">ApexRacing官方</span>
                 </a>
                 <a href="#" class="social-card reveal">
                     <i class="fas fa-book-open"></i>
-                    <h4>小红书</h4>
-                    <span>Apex Racing</span>
+                    <h4 data-i18n="contact.xiaohongshu">小红书</h4>
+                    <span data-i18n="contact.xiaohongshu_id">Apex Racing</span>
                 </a>
             </div>
         </div>
@@ -303,13 +303,13 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">LOCATION</span>
-                <h2 class="section-title">我们的位置</h2>
+                <h2 class="section-title" data-i18n="contact.location_title">我们的位置</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="address-card reveal">
                 <i class="fas fa-map-marker-alt"></i>
-                <h3>深圳国际交流书院</h3>
-                <p>深国交活动室A<br>Apex Racing 社团活动室</p>
+                <h3 data-i18n="contact.location_value">深圳国际交流书院</h3>
+                <p data-i18n="contact.location_room">深国交活动室A<br>Apex Racing 社团活动室</p>
             </div>
         </div>
     </section>
@@ -328,23 +328,23 @@
                     </div>
                 </div>
                 <div class="footer-links-section">
-                    <h4 class="footer-title">快速链接</h4>
+                    <h4 class="footer-title" data-i18n="footer.quick_links">快速链接</h4>
                     <ul class="footer-links">
                         <li><a href="index.html" data-i18n="nav.home">首页</a></li>
                         <li><a href="about.html" data-i18n="nav.about">关于我们</a></li>
-                        <li><a href="sponsors.html">赞助合作</a></li>
+                        <li><a href="sponsors.html" data-i18n="nav.sponsors">赞助合作</a></li>
                         <li><a href="join.html" data-i18n="nav.join">加入我们</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact-section">
-                    <h4 class="footer-title">联系我们</h4>
+                    <h4 class="footer-title" data-i18n="footer.contact_us">联系我们</h4>
                     <p><i class="fas fa-envelope"></i> contact@apexracing.com</p>
                     <p><i class="fas fa-globe"></i> <a href="https://apexracing-scie.github.io/" target="_blank">https://apexracing-scie.github.io/</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> 深国交活动室A</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.location_room">深国交活动室A</span></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Apex Racing. 保留所有权利。</p>
+                <p data-i18n="footer.copyright">&copy; 2026 Apex Racing. 保留所有权利。</p>
             </div>
         </div>
     </footer>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>赞助合作 | Apex Racing - 与我们一起驰骋</title>
+    <title data-i18n="sponsors.title">赞助合作 | Apex Racing - 与我们一起驰骋</title>
     <meta name="description" content="成为Apex Racing的合作伙伴，支持下一代工程师的成长。基础支持¥1000起，核心伙伴¥3000，战略合作定制。">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,7 +105,7 @@
         }
         
         .sponsor-card.featured::before {
-            content: '推荐';
+            content: attr(data-featured);
             position: absolute;
             top: -12px;
             left: 50%;
@@ -311,9 +311,9 @@
             <ul class="nav-links">
                 <li><a href="index.html" data-i18n="nav.home">首页</a></li>
                 <li><a href="about.html" data-i18n="nav.about">关于我们</a></li>
-                <li><a href="cars/apex-04.html">赛车展示</a></li>
-                <li><a href="tech/index.html">技术中心</a></li>
-                <li><a href="racing/index.html">赛事实绩</a></li>
+                <li><a href="cars/apex-04.html" data-i18n="nav.cars">赛车展示</a></li>
+                <li><a href="tech/index.html" data-i18n="nav.tech">技术中心</a></li>
+                <li><a href="racing/index.html" data-i18n="nav.racing">赛事实绩</a></li>
                 <li><a href="team.html" data-i18n="nav.team">核心成员</a></li>
                 <li><a href="join.html" data-i18n="nav.join" class="btn btn-primary nav-cta">加入我们</a></li>
             </ul>
@@ -327,9 +327,9 @@
         <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
         <a href="index.html" data-i18n="nav.home">首页</a>
         <a href="about.html" data-i18n="nav.about">关于我们</a>
-        <a href="cars/apex-04.html">赛车展示</a>
-        <a href="tech/index.html">技术中心</a>
-        <a href="racing/index.html">赛事实绩</a>
+        <a href="cars/apex-04.html" data-i18n="nav.cars">赛车展示</a>
+        <a href="tech/index.html" data-i18n="nav.tech">技术中心</a>
+        <a href="racing/index.html" data-i18n="nav.racing">赛事实绩</a>
         <a href="team.html" data-i18n="nav.team">核心成员</a>
         <a href="join.html" data-i18n="nav.join">加入我们</a>
     </div>
@@ -337,8 +337,8 @@
     <!-- 页面Hero -->
     <section class="page-hero">
         <div class="page-hero-content">
-            <h1>与我们一起驰骋</h1>
-            <p>您的支持是下一代工程师成长的基石。我们承诺以透明的财务、持续的曝光和优异的联赛成绩回报您的信任。</p>
+            <h1 data-i18n="sponsors.page_title">与我们一起驰骋</h1>
+            <p data-i18n="sponsors.page_subtitle">您的支持是下一代工程师成长的基石。我们承诺以透明的财务、持续的曝光和优异的联赛成绩回报您的信任。</p>
         </div>
     </section>
 
@@ -347,7 +347,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">WHY SPONSOR US</span>
-                <h2 class="section-title">合作价值</h2>
+                <h2 class="section-title" data-i18n="sponsors.why_sponsor">合作价值</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="value-grid">
@@ -355,29 +355,29 @@
                     <div class="value-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>教育价值</h3>
-                    <p>支持实践工程教育，培养下一代工程师</p>
+                    <h3 data-i18n="sponsors.value_education">教育价值</h3>
+                    <p data-i18n="sponsors.value_education_desc">支持实践工程教育，培养下一代工程师</p>
                 </div>
                 <div class="value-card reveal">
                     <div class="value-icon">
                         <i class="fas fa-bullhorn"></i>
                     </div>
-                    <h3>品牌曝光</h3>
-                    <p>精准触达学生群体和教育社群</p>
+                    <h3 data-i18n="sponsors.value_exposure">品牌曝光</h3>
+                    <p data-i18n="sponsors.value_exposure_desc">精准触达学生群体和教育社群</p>
                 </div>
                 <div class="value-card reveal">
                     <div class="value-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>人才储备</h3>
-                    <p>接触未来工程师，建立人才 pipeline</p>
+                    <h3 data-i18n="sponsors.value_talent">人才储备</h3>
+                    <p data-i18n="sponsors.value_talent_desc">接触未来工程师，建立人才 pipeline</p>
                 </div>
                 <div class="value-card reveal">
                     <div class="value-icon">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3>社区影响</h3>
-                    <p>支持STEM教育，产生积极社会影响</p>
+                    <h3 data-i18n="sponsors.value_community">社区影响</h3>
+                    <p data-i18n="sponsors.value_community_desc">支持STEM教育，产生积极社会影响</p>
                 </div>
             </div>
         </div>
@@ -388,46 +388,46 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">SPONSORSHIP TIERS</span>
-                <h2 class="section-title">赞助方案</h2>
+                <h2 class="section-title" data-i18n="sponsors.title">赞助方案</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="sponsor-cards">
                 <div class="sponsor-card reveal">
-                    <h3 class="sponsor-tier">基础支持</h3>
-                    <div class="sponsor-price">¥1,000</div>
+                    <h3 class="sponsor-tier" data-i18n="sponsors.tier_basic">基础支持</h3>
+                    <div class="sponsor-price" data-i18n="sponsors.price_basic">¥1,000</div>
                     <ul class="sponsor-features">
-                        <li><i class="fas fa-check"></i> 赛车车壳Logo展示</li>
-                        <li><i class="fas fa-check"></i> 赛事社群感谢提及</li>
-                        <li><i class="fas fa-check"></i> 网站赞助商墙展示</li>
-                        <li><i class="fas fa-check"></i> 赛季总结报告</li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_basic.0">赛车车壳Logo展示</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_basic.1">赛事社群感谢提及</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_basic.2">网站赞助商墙展示</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_basic.3">赛季总结报告</span></li>
                     </ul>
-                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-outline">成为赞助商</a>
+                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-outline" data-i18n="sponsors.cta_sponsor">成为赞助商</a>
                 </div>
                 
-                <div class="sponsor-card featured reveal">
-                    <h3 class="sponsor-tier">核心伙伴</h3>
-                    <div class="sponsor-price">¥3,000</div>
+                <div class="sponsor-card featured reveal" data-featured="推荐">
+                    <h3 class="sponsor-tier" data-i18n="sponsors.tier_core">核心伙伴</h3>
+                    <div class="sponsor-price" data-i18n="sponsors.price_core">¥3,000</div>
                     <ul class="sponsor-features">
-                        <li><i class="fas fa-check"></i> <strong>所有基础权益</strong></li>
-                        <li><i class="fas fa-check"></i> 队服显著位置Logo</li>
-                        <li><i class="fas fa-check"></i> 比赛PPT及展台核心展示</li>
-                        <li><i class="fas fa-check"></i> 专属技术交流机会</li>
-                        <li><i class="fas fa-check"></i> 未来赛事优先赞助权</li>
+                        <li><i class="fas fa-check"></i> <strong data-i18n="sponsors.benefits_core.0">所有基础权益</strong></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_core.1">队服显著位置Logo</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_core.2">比赛PPT及展台核心展示</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_core.3">专属技术交流机会</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_core.4">未来赛事优先赞助权</span></li>
                     </ul>
-                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-gold">成为核心伙伴</a>
+                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-gold" data-i18n="sponsors.cta_partner">成为核心伙伴</a>
                 </div>
                 
                 <div class="sponsor-card reveal">
-                    <h3 class="sponsor-tier">战略合作</h3>
-                    <div class="sponsor-price">定制</div>
+                    <h3 class="sponsor-tier" data-i18n="sponsors.tier_strategic">战略合作</h3>
+                    <div class="sponsor-price" data-i18n="sponsors.price_strategic">定制</div>
                     <ul class="sponsor-features">
-                        <li><i class="fas fa-check"></i> <strong>所有核心伙伴权益</strong></li>
-                        <li><i class="fas fa-check"></i> 联合技术开发与测试</li>
-                        <li><i class="fas fa-check"></i> 品牌故事深度整合</li>
-                        <li><i class="fas fa-check"></i> 长期品牌共建规划</li>
-                        <li><i class="fas fa-check"></i> 定制化回报方案</li>
+                        <li><i class="fas fa-check"></i> <strong data-i18n="sponsors.benefits_strategic.0">所有核心伙伴权益</strong></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_strategic.1">联合技术开发与测试</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_strategic.2">品牌故事深度整合</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_strategic.3">长期品牌共建规划</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="sponsors.benefits_strategic.4">定制化回报方案</span></li>
                     </ul>
-                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-outline">洽谈合作</a>
+                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-outline" data-i18n="sponsors.cta_discuss">洽谈合作</a>
                 </div>
             </div>
         </div>
@@ -438,113 +438,34 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">PROCESS</span>
-                <h2 class="section-title">合作流程</h2>
+                <h2 class="section-title" data-i18n="sponsors.process_title">合作流程</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="process-steps">
                 <div class="process-step reveal">
                     <div class="step-number">1</div>
-                    <div class="step-title">初步洽谈</div>
-                    <div class="step-desc">了解您的需求</div>
+                    <div class="step-title" data-i18n="sponsors.process_step1">初步洽谈</div>
+                    <div class="step-desc" data-i18n="sponsors.process_step1_desc">了解您的需求</div>
                 </div>
                 <div class="process-step reveal">
                     <div class="step-number">2</div>
-                    <div class="step-title">方案定制</div>
-                    <div class="step-desc">匹配最佳权益</div>
+                    <div class="step-title" data-i18n="sponsors.process_step2">方案定制</div>
+                    <div class="step-desc" data-i18n="sponsors.process_step2_desc">匹配最佳权益</div>
                 </div>
                 <div class="process-step reveal">
                     <div class="step-number">3</div>
-                    <div class="step-title">签约付款</div>
-                    <div class="step-desc">透明高效流程</div>
+                    <div class="step-title" data-i18n="sponsors.process_step3">签约付款</div>
+                    <div class="step-desc" data-i18n="sponsors.process_step3_desc">透明高效流程</div>
                 </div>
                 <div class="process-step reveal">
                     <div class="step-number">4</div>
-                    <div class="step-title">权益执行</div>
-                    <div class="step-desc">全程专人对接</div>
+                    <div class="step-title" data-i18n="sponsors.process_step4">权益执行</div>
+                    <div class="step-desc" data-i18n="sponsors.process_step4_desc">全程专人对接</div>
                 </div>
                 <div class="process-step reveal">
                     <div class="step-number">5</div>
-                    <div class="step-title">效果评估</div>
-                    <div class="step-desc">数据化报告</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">FAQ</span>
-                <h2 class="section-title">常见问题</h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="faq-list">
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <h4>赞助资金如何使用？</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            赞助资金将完全用于赛车研发、比赛参赛、设备采购和团队运营。我们承诺财务透明，每季度向赞助商提供资金使用报告。
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <h4>如何跟踪赞助效果？</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            我们提供多维度效果追踪：网站曝光数据、社交媒体互动数据、比赛现场品牌展示照片、赛季总结报告等。
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <h4>可以指定资金用途吗？</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            战略合作级别的赞助商可以指定资金用途，如专项用于电机升级、碳纤维部件采购等具体项目。
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <h4>合作期限是多久？</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            基础支持和核心伙伴为单赛季合作（每年9月至次年8月），战略合作可定制多年合作方案。
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <h4>除了资金还可以提供什么支持？</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            我们也欢迎设备赞助、技术支持、场地提供等非资金形式的支持，具体权益可单独商议。
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <h4>如何联系洽谈？</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            请发送邮件至 s23393.sun@stu.scie.com.cn，或通过网站 https://apexracing-scie.github.io/ 联系我们，我们会在24小时内回复。
-                        </div>
-                    </div>
+                    <div class="step-title" data-i18n="sponsors.process_step5">效果评估</div>
+                    <div class="step-desc" data-i18n="sponsors.process_step5_desc">数据化报告</div>
                 </div>
             </div>
         </div>
@@ -554,11 +475,11 @@
     <section class="section">
         <div class="container">
             <div style="text-align: center;" class="reveal">
-                <h2 style="font-size: 32px; margin-bottom: 16px;">准备好支持下一代工程师了吗？</h2>
-                <p style="color: var(--color-text-secondary); margin-bottom: 24px;">下载赞助手册或立即联系我们</p>
+                <h2 style="font-size: 32px; margin-bottom: 16px;" data-i18n="sponsors.cta_final">准备好支持下一代工程师了吗？</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: 24px;" data-i18n="sponsors.cta_final_desc">下载赞助手册或立即联系我们</p>
                 <div style="display: flex; gap: 16px; justify-content: center;">
-                    <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> 下载赞助手册</a>
-                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-primary">立即洽谈</a>
+                    <a href="#" class="btn btn-outline" data-i18n="sponsors.download_brochure"><i class="fas fa-download"></i> 下载赞助手册</a>
+                    <a href="mailto:s23393.sun@stu.scie.com.cn" class="btn btn-primary" data-i18n="sponsors.contact_now">立即洽谈</a>
                 </div>
             </div>
         </div>
@@ -578,23 +499,23 @@
                     </div>
                 </div>
                 <div class="footer-links-section">
-                    <h4 class="footer-title">快速链接</h4>
+                    <h4 class="footer-title" data-i18n="footer.quick_links">快速链接</h4>
                     <ul class="footer-links">
                         <li><a href="index.html" data-i18n="nav.home">首页</a></li>
                         <li><a href="about.html" data-i18n="nav.about">关于我们</a></li>
-                        <li><a href="sponsors.html">赞助合作</a></li>
+                        <li><a href="sponsors.html" data-i18n="nav.sponsors">赞助合作</a></li>
                         <li><a href="join.html" data-i18n="nav.join">加入我们</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact-section">
-                    <h4 class="footer-title">联系我们</h4>
+                    <h4 class="footer-title" data-i18n="footer.contact_us">联系我们</h4>
                     <p><i class="fas fa-envelope"></i> s23393.sun@stu.scie.com.cn</p>
                     <p><i class="fas fa-globe"></i> <a href="https://apexracing-scie.github.io/" target="_blank">https://apexracing-scie.github.io/</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> 深圳国际交流书院</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.location_value">深圳国际交流书院</span></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Apex Racing. 保留所有权利。</p>
+                <p data-i18n="footer.copyright">&copy; 2026 Apex Racing. 保留所有权利。</p>
             </div>
         </div>
     </footer>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我们 | Apex Racing - 从校园俱乐部到竞技赛场</title>
+    <title data-i18n="about.title">关于我们 | Apex Racing - 从校园俱乐部到竞技赛场</title>
     <meta name="description" content="了解Apex Racing的历史、团队哲学、组织架构和设施资源。我们是深国交最具专业度的赛车工程社团。">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -263,9 +263,9 @@
             <ul class="nav-links">
                 <li><a href="index.html" data-i18n="nav.home">首页</a></li>
                 <li><a href="about.html" data-i18n="nav.about" class="active">关于我们</a></li>
-                <li><a href="cars/apex-04.html">赛车展示</a></li>
-                <li><a href="tech/index.html">技术中心</a></li>
-                <li><a href="racing/index.html">赛事实绩</a></li>
+                <li><a href="cars/apex-04.html" data-i18n="nav.cars">赛车展示</a></li>
+                <li><a href="tech/index.html" data-i18n="nav.tech">技术中心</a></li>
+                <li><a href="racing/index.html" data-i18n="nav.racing">赛事实绩</a></li>
                 <li><a href="team.html" data-i18n="nav.team">核心成员</a></li>
                 <li><a href="join.html" data-i18n="nav.join" class="btn btn-primary nav-cta">加入我们</a></li>
             </ul>
@@ -279,9 +279,9 @@
         <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
         <a href="index.html" data-i18n="nav.home">首页</a>
         <a href="about.html" data-i18n="nav.about">关于我们</a>
-        <a href="cars/apex-04.html">赛车展示</a>
-        <a href="tech/index.html">技术中心</a>
-        <a href="racing/index.html">赛事实绩</a>
+        <a href="cars/apex-04.html" data-i18n="nav.cars">赛车展示</a>
+        <a href="tech/index.html" data-i18n="nav.tech">技术中心</a>
+        <a href="racing/index.html" data-i18n="nav.racing">赛事实绩</a>
         <a href="team.html" data-i18n="nav.team">核心成员</a>
         <a href="join.html" data-i18n="nav.join">加入我们</a>
     </div>
@@ -289,8 +289,8 @@
     <!-- 页面Hero -->
     <section class="page-hero">
         <div class="page-hero-content">
-            <h1>关于我们</h1>
-            <p>Precision. Partnership. Perseverance.</p>
+            <h1 data-i18n="about.title">关于我们</h1>
+            <p data-i18n="hero.tagline">Precision. Partnership. Perseverance.</p>
         </div>
     </section>
 
@@ -299,7 +299,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">OUR HISTORY</span>
-                <h2 class="section-title">社团历史</h2>
+                <h2 class="section-title" data-i18n="about.history_title">社团历史</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="history-timeline">
@@ -307,24 +307,24 @@
                     <div class="history-year">2025.08</div>
                     <div class="history-dot"></div>
                     <div class="history-content">
-                        <h3>社团成立</h3>
-                        <p>5名创始成员，1辆入门级赛车，从深国交RC俱乐部起步，怀揣着对赛车工程的热爱。</p>
+                        <h3 data-i18n="common.founded">社团成立</h3>
+                        <p>5<span data-i18n="common.founding_members">名创始成员，1辆入门级赛车，从深国交RC俱乐部起步，怀揣着对赛车工程的热爱。</span></p>
                     </div>
                 </div>
                 <div class="history-item reveal">
                     <div class="history-year">2026.02</div>
                     <div class="history-dot"></div>
                     <div class="history-content">
-                        <h3>全国亚军</h3>
-                        <p>NSL全国赛活塞组亚军，多项单项奖，从DNF到领奖台的完美逆袭。</p>
+                        <h3 data-i18n="racing.nsl2026_result">全国亚军</h3>
+                        <p data-i18n="about.story">NSL全国赛活塞组亚军，多项单项奖，从DNF到领奖台的完美逆袭。</p>
                     </div>
                 </div>
                 <div class="history-item reveal">
                     <div class="history-year">2026</div>
                     <div class="history-dot"></div>
                     <div class="history-content">
-                        <h3>新的征程</h3>
-                        <p>技术分享月即将开启，校际友谊赛筹备中，向着更高目标前进。</p>
+                        <h3 data-i18n="common.new_journey">新的征程</h3>
+                        <p data-i18n="common.new_journey_desc">技术分享月即将开启，校际友谊赛筹备中，向着更高目标前进。</p>
                     </div>
                 </div>
             </div>
@@ -336,7 +336,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">OUR PHILOSOPHY</span>
-                <h2 class="section-title">团队哲学</h2>
+                <h2 class="section-title" data-i18n="about.philosophy_title">团队哲学</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="philosophy-cards">
@@ -345,21 +345,21 @@
                         <i class="fas fa-crosshairs"></i>
                     </div>
                     <h3>Precision</h3>
-                    <p>精准是工程设计的灵魂。从每一个螺丝的扭矩到每一次调校的参数，我们追求极致的精确，因为赛场上0.1秒的差距，往往源于平日里0.01毫米的疏忽。</p>
+                    <p data-i18n="about.philosophy_precision">精准是工程设计的灵魂。从每一个螺丝的扭矩到每一次调校的参数，我们追求极致的精确，因为赛场上0.1秒的差距，往往源于平日里0.01毫米的疏忽。</p>
                 </div>
                 <div class="philosophy-card reveal">
                     <div class="philosophy-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3>Partnership</h3>
-                    <p>协作是团队成功的基石。队长、车手、工程师、摄影师、商务，每个人都是系统中不可或缺的共振节点。我们相信，卓越的成绩源于每个成员在擅长领域的闪光。</p>
+                    <p data-i18n="about.philosophy_partnership">协作是团队成功的基石。队长、车手、工程师、摄影师、商务，每个人都是系统中不可或缺的共振节点。我们相信，卓越的成绩源于每个成员在擅长领域的闪光。</p>
                 </div>
                 <div class="philosophy-card reveal">
                     <div class="philosophy-icon">
                         <i class="fas fa-mountain"></i>
                     </div>
                     <h3>Perseverance</h3>
-                    <p>坚韧是突破困境的力量。从DNF到亚军，我们用一年时间证明：失败不是终点，而是通往成功的必经之路。每一次跌倒，都是为了更高飞的蓄力。</p>
+                    <p data-i18n="about.philosophy_perseverance">坚韧是突破困境的力量。从DNF到亚军，我们用一年时间证明：失败不是终点，而是通往成功的必经之路。每一次跌倒，都是为了更高飞的蓄力。</p>
                 </div>
             </div>
         </div>
@@ -370,38 +370,38 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">ORGANIZATION</span>
-                <h2 class="section-title">组织架构</h2>
+                <h2 class="section-title" data-i18n="about.org_title">组织架构</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="org-chart">
                 <div class="org-level reveal">
                     <div class="org-card leader">
-                        <h4>张明远</h4>
-                        <span>团长</span>
+                        <h4>Donovan</h4>
+                        <span data-i18n="team.role_leader">团长</span>
                     </div>
                 </div>
                 <div class="org-level reveal">
                     <div class="org-card">
-                        <h4>李浩然</h4>
-                        <span>技术总监</span>
+                        <h4>Simon</h4>
+                        <span data-i18n="team.role_tech">技术总监</span>
                     </div>
                     <div class="org-card">
-                        <h4>陈思雨</h4>
-                        <span>运营总监</span>
+                        <h4>Jason</h4>
+                        <span data-i18n="team.role_operations">运营总监</span>
                     </div>
                 </div>
                 <div class="org-level reveal">
                     <div class="org-card">
-                        <h4>王梓轩</h4>
-                        <span>车手组</span>
+                        <h4>Alex</h4>
+                        <span data-i18n="team.role_driver">首席车手</span>
                     </div>
                     <div class="org-card">
-                        <h4>刘子墨</h4>
-                        <span>工程师组</span>
+                        <h4>David</h4>
+                        <span data-i18n="common.engineer">工程师</span>
                     </div>
                     <div class="org-card">
-                        <h4>赵雨桐</h4>
-                        <span>宣传组</span>
+                        <h4>Lucas</h4>
+                        <span data-i18n="common.media">宣传组</span>
                     </div>
                 </div>
             </div>
@@ -413,7 +413,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">FACILITIES</span>
-                <h2 class="section-title">设施与资源</h2>
+                <h2 class="section-title" data-i18n="about.facilities_title">设施与资源</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="facility-gallery">
@@ -429,8 +429,7 @@
             </div>
             <div style="max-width: 800px; margin: 40px auto 0; text-align: center;">
                 <p style="color: var(--color-text-secondary); line-height: 1.8;">
-                    学校为我们提供了专业的工作坊，配备完整的工具架、测试设备和备件存储区。
-                    每周五下午16:00-18:00为固定社团活动时间，成员可随时使用设施进行车辆维护和升级。
+                    <span data-i18n="common.facilities_desc">学校为我们提供了专业的工作坊，配备完整的工具架、测试设备和备件存储区。每周五下午16:00-18:00为固定社团活动时间，成员可随时使用设施进行车辆维护和升级。</span>
                 </p>
             </div>
         </div>
@@ -442,7 +441,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo-text">APEX <span>RACING</span></div>
-                    <p>Precision, Partnership, Perseverance.<br>深国交学生工程赛车团队。</p>
+                    <p>Precision, Partnership, Perseverance.<br><span data-i18n="footer.copyright">深国交学生工程赛车团队。</span></p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-weixin"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -451,33 +450,33 @@
                     </div>
                 </div>
                 <div class="footer-links-section">
-                    <h4 class="footer-title">快速链接</h4>
+                    <h4 class="footer-title" data-i18n="footer.quick_links">快速链接</h4>
                     <ul class="footer-links">
                         <li><a href="index.html" data-i18n="nav.home">首页</a></li>
                         <li><a href="about.html" data-i18n="nav.about">关于我们</a></li>
-                        <li><a href="cars/apex-04.html">赛车展示</a></li>
-                        <li><a href="racing/index.html">赛事实绩</a></li>
+                        <li><a href="cars/apex-04.html" data-i18n="nav.cars">赛车展示</a></li>
+                        <li><a href="racing/index.html" data-i18n="nav.racing">赛事实绩</a></li>
                         <li><a href="team.html" data-i18n="nav.team">核心成员</a></li>
                     </ul>
                 </div>
                 <div class="footer-links-section">
-                    <h4 class="footer-title">资源</h4>
+                    <h4 class="footer-title" data-i18n="footer.resources">资源</h4>
                     <ul class="footer-links">
-                        <li><a href="tech/index.html">技术博客</a></li>
-                        <li><a href="#">知识库</a></li>
-                        <li><a href="#">校友网络</a></li>
-                        <li><a href="sponsors.html">赞助合作</a></li>
+                        <li><a href="tech/index.html" data-i18n="nav.tech">技术博客</a></li>
+                        <li><a href="#" data-i18n="common.coming_soon">知识库</a></li>
+                        <li><a href="#" data-i18n="common.coming_soon">校友网络</a></li>
+                        <li><a href="sponsors.html" data-i18n="nav.sponsors">赞助合作</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact-section">
-                    <h4 class="footer-title">联系我们</h4>
+                    <h4 class="footer-title" data-i18n="footer.contact_us">联系我们</h4>
                     <p><i class="fas fa-envelope"></i> contact@apexracing.com</p>
                     <p><i class="fas fa-globe"></i> <a href="https://apexracing-scie.github.io/" target="_blank">https://apexracing-scie.github.io/</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> 深圳国际交流书院</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.location_value">深圳国际交流书院</span></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Apex Racing. 保留所有权利。</p>
+                <p data-i18n="footer.copyright">&copy; 2026 Apex Racing. 保留所有权利。</p>
             </div>
         </div>
     </footer>
