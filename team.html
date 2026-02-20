@@ -64,12 +64,11 @@
             object-fit: cover;
         }
         
-        /* 线框图头像样式 */
-        .wireframe-avatar {
+        /* 卡通头像样式 */
+        .cartoon-avatar {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            border: 2px solid var(--color-accent-gold);
+            background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 100%);
             border-radius: 12px;
             display: flex;
             flex-direction: column;
@@ -79,48 +78,151 @@
             overflow: hidden;
         }
         
-        .wireframe-avatar::before {
+        /* 头发 */
+        .cartoon-avatar::before {
+            content: '';
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 75%;
+            height: 35%;
+            background: #2d2d2d;
+            border-radius: 50% 50% 30% 30%;
+            z-index: 1;
+        }
+        
+        /* 脸部 */
+        .cartoon-face {
+            width: 65%;
+            height: 55%;
+            background: #f5e6c8;
+            border-radius: 45% 45% 50% 50%;
+            position: relative;
+            z-index: 2;
+            margin-top: 15%;
+        }
+        
+        /* 眼睛 */
+        .cartoon-eyes {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 3;
+        }
+        
+        .cartoon-eye {
+            width: 18%;
+            height: 22%;
+            background: #1a1a1a;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .cartoon-eye::after {
             content: '';
             position: absolute;
             top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--color-accent-gold);
+            right: 20%;
+            width: 35%;
+            height: 35%;
+            background: white;
             border-radius: 50%;
-            opacity: 0.6;
         }
         
-        .wireframe-avatar::after {
-            content: '';
+        /* 眉毛 */
+        .cartoon-eyebrows {
             position: absolute;
-            top: 45%;
+            top: 22%;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 80px;
-            border: 2px solid var(--color-accent-gold);
-            border-radius: 50% 50% 0 0;
-            opacity: 0.4;
+            width: 65%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 3;
         }
         
-        .wireframe-avatar i {
-            font-size: 48px;
-            color: var(--color-accent-gold);
-            opacity: 0.5;
-            z-index: 1;
+        .cartoon-eyebrow {
+            width: 22%;
+            height: 8%;
+            background: #2d2d2d;
+            border-radius: 50%;
         }
         
-        .wireframe-label {
+        /* 鼻子 */
+        .cartoon-nose {
             position: absolute;
-            bottom: 20px;
-            font-size: 12px;
-            color: var(--color-accent-gold);
-            opacity: 0.6;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            top: 52%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8%;
+            height: 12%;
+            background: #e0c8a0;
+            border-radius: 0 0 50% 50%;
+            z-index: 3;
+        }
+        
+        /* 嘴巴 */
+        .cartoon-mouth {
+            position: absolute;
+            top: 68%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 12%;
+            background: #c97b7b;
+            border-radius: 0 0 50% 50%;
+            z-index: 3;
+        }
+        
+        /* 耳朵 */
+        .cartoon-ears {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
             z-index: 1;
+        }
+        
+        .cartoon-ear {
+            width: 12%;
+            height: 18%;
+            background: #f5e6c8;
+            border-radius: 50%;
+        }
+        
+        /* 身体/衣服 */
+        .cartoon-body {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 25%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 30% 30% 0 0;
+            z-index: 4;
+        }
+        
+        /* 领口 */
+        .cartoon-collar {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid white;
+            z-index: 5;
         }
         
         .leader-info h2 {
@@ -386,9 +488,25 @@
         <div class="container">
             <div class="leader-section reveal">
                 <div class="leader-image">
-                    <div class="wireframe-avatar">
-                        <i class="fas fa-user"></i>
-                        <span class="wireframe-label">Donovan</span>
+                    <div class="cartoon-avatar">
+                        <div class="cartoon-face">
+                            <div class="cartoon-eyebrows">
+                                <div class="cartoon-eyebrow"></div>
+                                <div class="cartoon-eyebrow"></div>
+                            </div>
+                            <div class="cartoon-eyes">
+                                <div class="cartoon-eye"></div>
+                                <div class="cartoon-eye"></div>
+                            </div>
+                            <div class="cartoon-nose"></div>
+                            <div class="cartoon-mouth"></div>
+                        </div>
+                        <div class="cartoon-ears">
+                            <div class="cartoon-ear"></div>
+                            <div class="cartoon-ear"></div>
+                        </div>
+                        <div class="cartoon-body"></div>
+                        <div class="cartoon-collar"></div>
                     </div>
                 </div>
                 <div class="leader-info">
