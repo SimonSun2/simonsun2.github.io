@@ -305,6 +305,7 @@ body {
     margin-left: 16px;
     padding: 10px 10px !important;
     font-size: 12px;
+    white-space: nowrap;
 }
 
 /* 移动端菜单按钮 */
