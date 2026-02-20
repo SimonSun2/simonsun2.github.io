@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>从DNF到亚军：Apex-04的可靠性工程实践 | Apex Racing 技术中心</title>
+    <title data-i18n="common.blog_post_1">从DNF到亚军：Apex-04的可靠性工程实践 | Apex Racing 技术中心</title>
     <meta name="description" content="分享我们如何通过系统性的工程改进，将赛车可靠性从去年的DNF提升到今年的全国亚军。">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,356 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../../css/style.css?v=3">
-    
-    <style>
-        /* 面包屑导航 */
-        .breadcrumb {
-            background: var(--color-bg-secondary);
-            padding: 16px 0;
-        }
-        
-        .breadcrumb-content {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: var(--color-text-secondary);
-        }
-        
-        .breadcrumb-content a {
-            color: var(--color-text-secondary);
-            transition: color 0.3s ease;
-        }
-        
-        .breadcrumb-content a:hover {
-            color: var(--color-accent-gold);
-        }
-        
-        .breadcrumb-content i {
-            font-size: 10px;
-        }
-        
-        /* 文章头部 */
-        .article-header {
-            padding: 60px 0 40px;
-        }
-        
-        .article-category {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--color-accent-gold);
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-        
-        .article-title {
-            font-size: clamp(28px, 5vw, 42px);
-            margin-bottom: 24px;
-            line-height: 1.3;
-        }
-        
-        .article-meta {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-        
-        .article-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .article-author img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .article-author-info h4 {
-            font-size: 14px;
-            margin-bottom: 2px;
-        }
-        
-        .article-author-info p {
-            font-size: 12px;
-            color: var(--color-text-secondary);
-        }
-        
-        .article-stats {
-            display: flex;
-            gap: 20px;
-            color: var(--color-text-secondary);
-            font-size: 13px;
-        }
-        
-        .article-stats span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        /* 特色图片 */
-        .article-featured-image {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 40px;
-        }
-        
-        .article-featured-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* 文章内容 */
-        .article-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .article-content h2 {
-            font-size: 28px;
-            margin: 40px 0 20px;
-            color: var(--color-accent-gold);
-        }
-        
-        .article-content h3 {
-            font-size: 22px;
-            margin: 32px 0 16px;
-        }
-        
-        .article-content p {
-            color: var(--color-text-secondary);
-            line-height: 1.9;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        
-        .article-content ul,
-        .article-content ol {
-            margin-bottom: 20px;
-            padding-left: 24px;
-        }
-        
-        .article-content li {
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
-        
-        .article-content li::marker {
-            color: var(--color-accent-gold);
-        }
-        
-        .article-content blockquote {
-            background: var(--color-bg-secondary);
-            border-left: 4px solid var(--color-accent-gold);
-            padding: 24px 24px 24px 28px;
-            margin: 30px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .article-content blockquote p {
-            font-style: italic;
-            margin-bottom: 0;
-        }
-        
-        .article-content img {
-            width: 100%;
-            border-radius: 8px;
-            margin: 30px 0;
-        }
-        
-        .article-content code {
-            background: var(--color-bg-secondary);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-family: var(--font-mono);
-            font-size: 14px;
-            color: var(--color-accent-gold);
-        }
-        
-        /* 文章底部 */
-        .article-footer {
-            max-width: 800px;
-            margin: 60px auto 0;
-            padding-top: 40px;
-            border-top: 1px solid var(--color-border);
-        }
-        
-        .article-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .article-tag {
-            padding: 8px 16px;
-            background: var(--color-bg-secondary);
-            border-radius: 20px;
-            font-size: 13px;
-            color: var(--color-text-secondary);
-            transition: all 0.3s ease;
-        }
-        
-        .article-tag:hover {
-            background: var(--color-accent-gold);
-            color: var(--color-bg-primary);
-        }
-        
-        .share-section {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-        
-        .share-section span {
-            color: var(--color-text-secondary);
-            font-size: 14px;
-        }
-        
-        .share-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .share-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--color-bg-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-text-secondary);
-            transition: all 0.3s ease;
-        }
-        
-        .share-btn:hover {
-            background: var(--color-accent-gold);
-            color: var(--color-bg-primary);
-        }
-        
-        /* 作者卡片 */
-        .author-card {
-            background: var(--color-bg-secondary);
-            border-radius: 12px;
-            padding: 30px;
-            display: flex;
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-        
-        .author-card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            font-size: 18px;
-            margin-bottom: 4px;
-        }
-        
-        .author-info span {
-            font-size: 13px;
-            color: var(--color-text-secondary);
-        }
-        
-        .author-info p {
-            color: var(--color-text-secondary);
-            font-size: 14px;
-            line-height: 1.6;
-            margin-top: 12px;
-        }
-        
-        /* 相关文章 */
-        .related-articles {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .related-articles h3 {
-            font-size: 20px;
-            margin-bottom: 24px;
-        }
-        
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        
-        .related-card {
-            background: var(--color-bg-secondary);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .related-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .related-card-image {
-            aspect-ratio: 16/9;
-            overflow: hidden;
-        }
-        
-        .related-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .related-card-content {
-            padding: 16px;
-        }
-        
-        .related-card-content h4 {
-            font-size: 14px;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        
-        @media (max-width: 768px) {
-            .article-meta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .author-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .author-card img {
-                margin: 0 auto;
-            }
-            
-            .related-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- 导航栏 -->
     <nav class="navbar">
         <div class="container">
             <a href="../../index.html" class="logo">
@@ -368,214 +20,129 @@
                 <span class="logo-text">APEX <span>RACING</span></span>
             </a>
             <ul class="nav-links">
-                <li><a href="../../index.html">首页</a></li>
-                <li><a href="../../about.html">关于我们</a></li>
-                <li><a href="../../cars/apex-04.html">赛车展示</a></li>
-                <li><a href="../index.html" class="active">技术中心</a></li>
-                <li><a href="../../racing/index.html">赛事实绩</a></li>
-                <li><a href="../../team.html">核心成员</a></li>
-                <li><a href="../../join.html" class="btn btn-primary nav-cta">加入我们</a></li>
+                <li><a href="../../index.html" data-i18n="nav.home">首页</a></li>
+                <li><a href="../../about.html" data-i18n="nav.about">关于我们</a></li>
+                <li><a href="../../cars/apex-04.html" data-i18n="nav.cars">赛车展示</a></li>
+                <li><a href="../index.html" data-i18n="nav.tech" class="active">技术中心</a></li>
+                <li><a href="../../racing/index.html" data-i18n="nav.racing">赛事实绩</a></li>
+                <li><a href="../../team.html" data-i18n="nav.team">核心成员</a></li>
+                <li><a href="../../join.html" data-i18n="nav.join" class="btn btn-primary nav-cta">加入我们</a></li>
             </ul>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
     
     <div class="mobile-menu">
         <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
-        <a href="../../index.html">首页</a>
-        <a href="../../about.html">关于我们</a>
-        <a href="../../cars/apex-04.html">赛车展示</a>
-        <a href="../index.html">技术中心</a>
-        <a href="../../racing/index.html">赛事实绩</a>
-        <a href="../../team.html">核心成员</a>
-        <a href="../../join.html">加入我们</a>
+        <a href="../../index.html" data-i18n="nav.home">首页</a>
+        <a href="../../about.html" data-i18n="nav.about">关于我们</a>
+        <a href="../../cars/apex-04.html" data-i18n="nav.cars">赛车展示</a>
+        <a href="../index.html" data-i18n="nav.tech">技术中心</a>
+        <a href="../../racing/index.html" data-i18n="nav.racing">赛事实绩</a>
+        <a href="../../team.html" data-i18n="nav.team">核心成员</a>
+        <a href="../../join.html" data-i18n="nav.join">加入我们</a>
     </div>
 
-    <!-- 面包屑 -->
     <div class="breadcrumb">
         <div class="container">
             <div class="breadcrumb-content">
-                <a href="../../index.html">首页</a>
+                <a href="../../index.html" data-i18n="nav.home">首页</a>
                 <i class="fas fa-chevron-right"></i>
-                <a href="../index.html">技术中心</a>
+                <a href="../index.html" data-i18n="nav.tech">技术中心</a>
                 <i class="fas fa-chevron-right"></i>
-                <a href="../index.html">比赛复盘</a>
+                <a href="../index.html" data-i18n="tech.category_race">比赛复盘</a>
                 <i class="fas fa-chevron-right"></i>
-                <span>从DNF到亚军：Apex-04的可靠性工程实践</span>
+                <span data-i18n="common.blog_post_1">从DNF到亚军：Apex-04的可靠性工程实践</span>
             </div>
         </div>
     </div>
 
-    <!-- 文章头部 -->
     <header class="article-header">
         <div class="container">
             <div class="article-content">
-                <span class="article-category">比赛复盘</span>
-                <h1 class="article-title">从DNF到亚军：Apex-04的可靠性工程实践</h1>
+                <span class="article-category" data-i18n="tech.category_race">比赛复盘</span>
+                <h1 class="article-title" data-i18n="common.blog_post_1">从DNF到亚军：Apex-04的可靠性工程实践</h1>
                 <div class="article-meta">
                     <div class="article-author">
                         <img src="../../images/member-1.jpg" alt="作者">
                         <div class="article-author-info">
-                            <h4>张明远</h4>
-                            <p>Apex Racing 团长</p>
+                            <h4 data-i18n="team.donovan_name">Donovan</h4>
+                            <p data-i18n="team.donovan_role">团长</p>
                         </div>
                     </div>
                     <div class="article-stats">
-                        <span><i class="far fa-calendar"></i> 2026年2月20日</span>
-                        <span><i class="far fa-clock"></i> 8分钟阅读</span>
-                        <span><i class="far fa-eye"></i> 1,234次阅读</span>
+                        <span><i class="far fa-calendar"></i> 2026<span data-i18n="common.year_month">年2月20日</span></span>
+                        <span><i class="far fa-clock"></i> 8<span data-i18n="common.minutes_read">分钟阅读</span></span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- 特色图片 -->
-    <div class="container">
-        <div class="article-featured-image">
-            <img src="../../images/racing-event.jpg" alt="NSL全国赛现场">
-        </div>
-    </div>
-
-    <!-- 文章内容 -->
     <article class="section">
         <div class="container">
             <div class="article-content">
-                <p>2025年的NSL全国赛，我们因为机械故障DNF（未完赛）。那一刻的失落和沮丧，至今记忆犹新。但正是这次失败，让我们痛定思痛，开始了为期一年的可靠性工程改造。2026年，我们带着Apex-04重返赛场，最终以活塞组亚军的成绩证明了自己。</p>
+                <p data-i18n="common.blog_post_1_content_1">2025年的NSL全国赛，我们因为机械故障DNF（未完赛）。那一刻的失落和沮丧，至今记忆犹新。但正是这次失败，让我们痛定思痛，开始了为期一年的可靠性工程改造。2026年，我们带着Apex-04重返赛场，最终以活塞组亚军的成绩证明了自己。</p>
                 
-                <h2>失败的教训</h2>
-                <p>去年的DNF发生在正赛第二轮的中段。当时我们的赛车处于领先位置，但突然失去了动力。赛后检查发现问题出在电调过热保护上——我们在追求极限性能的同时，忽略了散热设计。</p>
+                <h2 data-i18n="common.lessons_learned">失败的教训</h2>
+                <p data-i18n="common.blog_post_1_content_2">去年的DNF发生在正赛第二轮的中段。当时我们的赛车处于领先位置，但突然失去了动力。赛后检查发现问题出在电调过热保护上——我们在追求极限性能的同时，忽略了散热设计。</p>
                 
                 <blockquote>
-                    <p>"失败不是终点，而是通往成功的必经之路。每一次跌倒，都是为了更高飞的蓄力。"</p>
+                    <p data-i18n="about.philosophy_perseverance">"失败不是终点，而是通往成功的必经之路。每一次跌倒，都是为了更高飞的蓄力。"</p>
                 </blockquote>
                 
-                <h2>系统性的可靠性改进</h2>
-                <p>从那一刻起，我们将"可靠性"提升到了与"性能"同等重要的位置。我们的改进工作可以分为以下几个层面：</p>
+                <h2 data-i18n="common.systematic_improvement">系统性的可靠性改进</h2>
+                <p data-i18n="common.blog_post_1_content_3">从那一刻起，我们将"可靠性"提升到了与"性能"同等重要的位置。我们的改进工作可以分为以下几个层面：</p>
                 
-                <h3>1. 电子系统升级</h3>
-                <p>我们更换了更高规格的电调，并增加了主动散热风扇。同时，我们建立了完整的数据采集系统，实时监控电机温度、电流、电压等关键参数，确保车辆始终工作在安全范围内。</p>
+                <h3 data-i18n="common.electronics_upgrade">1. 电子系统升级</h3>
+                <p data-i18n="common.blog_post_1_content_4">我们更换了更高规格的电调，并增加了主动散热风扇。同时，我们建立了完整的数据采集系统，实时监控电机温度、电流、电压等关键参数，确保车辆始终工作在安全范围内。</p>
                 
-                <h3>2. 机械结构强化</h3>
-                <p>我们对全车进行了应力分析，识别出薄弱环节并进行针对性强化。关键连接点从尼龙件升级为金属件，传动系统增加了冗余保护设计。</p>
+                <h3 data-i18n="common.mechanical_reinforcement">2. 机械结构强化</h3>
+                <p data-i18n="common.blog_post_1_content_5">我们对全车进行了应力分析，识别出薄弱环节并进行针对性强化。关键连接点从尼龙件升级为金属件，传动系统增加了冗余保护设计。</p>
                 
-                <h3>3. 测试流程标准化</h3>
-                <p>我们建立了完整的测试流程，包括：日常检查清单、赛前全面检测、赛后复盘分析。每一次测试都详细记录数据，形成可追溯的改进闭环。</p>
+                <h3 data-i18n="common.testing_standardization">3. 测试流程标准化</h3>
+                <p data-i18n="common.blog_post_1_content_6">我们建立了完整的测试流程，包括：日常检查清单、赛前全面检测、赛后复盘分析。每一次测试都详细记录数据，形成可追溯的改进闭环。</p>
                 
-                <img src="../../images/tech-electronics.jpg" alt="电子系统升级">
+                <h2 data-i18n="common.race_verification">赛场验证</h2>
+                <p data-i18n="common.blog_post_1_content_7">2026年2月，我们带着Apex-04来到上海。排位赛、正赛两轮，我们的赛车始终稳定运行，最终以亚军的成绩完赛。这不是运气，而是系统性工程改进的必然结果。</p>
                 
-                <h2>赛场验证</h2>
-                <p>2026年2月，我们带着Apex-04来到上海。排位赛、正赛两轮，我们的赛车始终稳定运行，最终以亚军的成绩完赛。这不是运气，而是系统性工程改进的必然结果。</p>
+                <h2 data-i18n="common.advice_for_future">给后来者的建议</h2>
+                <p data-i18n="common.blog_post_1_content_8">如果你也在追求极限性能，请记住：可靠性是性能的基础。没有可靠性的性能，只是空中楼阁。在追求速度的同时，不要忽视那些看似不起眼的细节——它们往往决定着最终的成败。</p>
                 
-                <h2>给后来者的建议</h2>
-                <p>如果你也在追求极限性能，请记住：可靠性是性能的基础。没有可靠性的性能，只是空中楼阁。在追求速度的同时，不要忽视那些看似不起眼的细节——它们往往决定着最终的成败。</p>
-                
-                <p>最后，感谢团队每一位成员这一年的付出。从DNF到亚军，我们证明了一件事：只要不放弃，就没有克服不了的困难。</p>
+                <p data-i18n="common.blog_post_1_content_9">最后，感谢团队每一位成员这一年的付出。从DNF到亚军，我们证明了一件事：只要不放弃，就没有克服不了的困难。</p>
             </div>
         </div>
     </article>
 
-    <!-- 文章底部 -->
-    <div class="container">
-        <div class="article-footer">
-            <div class="article-tags">
-                <a href="#" class="article-tag">#可靠性工程</a>
-                <a href="#" class="article-tag">#NSL全国赛</a>
-                <a href="#" class="article-tag">#Apex-04</a>
-                <a href="#" class="article-tag">#比赛复盘</a>
-            </div>
-            
-            <div class="share-section">
-                <span>分享文章：</span>
-                <div class="share-buttons">
-                    <a href="#" class="share-btn"><i class="fab fa-weixin"></i></a>
-                    <a href="#" class="share-btn"><i class="fab fa-weibo"></i></a>
-                    <a href="#" class="share-btn"><i class="fas fa-link"></i></a>
-                </div>
-            </div>
-            
-            <div class="author-card">
-                <img src="../../images/member-1.jpg" alt="张明远">
-                <div class="author-info">
-                    <h4>张明远</h4>
-                    <span>Apex Racing 团长</span>
-                    <p>深国交G2学生，Apex Racing创始人之一。热爱赛车工程，致力于将STEM教育与实践相结合。</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 相关文章 -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="related-articles">
-                <h3>相关文章</h3>
-                <div class="related-grid">
-                    <a href="#" class="related-card">
-                        <div class="related-card-image">
-                            <img src="../../images/tech-suspension.jpg" alt="悬挂调校">
-                        </div>
-                        <div class="related-card-content">
-                            <h4>悬挂系统调校入门：Caster、Camber、Toe详解</h4>
-                        </div>
-                    </a>
-                    <a href="#" class="related-card">
-                        <div class="related-card-image">
-                            <img src="../../images/tech-aero.jpg" alt="碳纤维设计">
-                        </div>
-                        <div class="related-card-content">
-                            <h4>碳纤维车架设计：轻量化与刚性的平衡</h4>
-                        </div>
-                    </a>
-                    <a href="#" class="related-card">
-                        <div class="related-card-image">
-                            <img src="../../images/hero-racing.jpg" alt="赛事策略">
-                        </div>
-                        <div class="related-card-content">
-                            <h4>NSL上海站赛事策略分析：稳中求胜</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo-text">APEX <span>RACING</span></div>
                     <p>Precision, Partnership, Perseverance.</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-weixin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-bilibili"></i></a>
-                    </div>
                 </div>
                 <div class="footer-links-section">
-                    <h4 class="footer-title">快速链接</h4>
+                    <h4 class="footer-title" data-i18n="footer.quick_links">快速链接</h4>
                     <ul class="footer-links">
-                        <li><a href="../../index.html">首页</a></li>
-                        <li><a href="../../about.html">关于我们</a></li>
-                        <li><a href="../index.html">技术中心</a></li>
-                        <li><a href="../../racing/index.html">赛事实绩</a></li>
+                        <li><a href="../../index.html" data-i18n="nav.home">首页</a></li>
+                        <li><a href="../../about.html" data-i18n="nav.about">关于我们</a></li>
+                        <li><a href="../index.html" data-i18n="nav.tech">技术中心</a></li>
+                        <li><a href="../../racing/index.html" data-i18n="nav.racing">赛事实绩</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact-section">
-                    <h4 class="footer-title">联系我们</h4>
+                    <h4 class="footer-title" data-i18n="footer.contact_us">联系我们</h4>
                     <p><i class="fas fa-envelope"></i> contact@apexracing.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 深圳国际交流书院</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.location_value">深圳国际交流书院</span></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Apex Racing. 保留所有权利。</p>
+                <p data-i18n="footer.copyright">&copy; 2026 Apex Racing. 保留所有权利。</p>
             </div>
         </div>
     </footer>
 
+    <script src="../../js/i18n.js?v=3"></script>
     <script src="../../js/main.js?v=3"></script>
 </body>
 </html>
