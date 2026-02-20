@@ -1,0 +1,114 @@
+{
+  "zh": {
+    "nav": {
+      "home": "首页",
+      "about": "关于我们",
+      "cars": "赛车展示",
+      "tech": "技术中心",
+      "racing": "赛事实绩",
+      "team": "核心成员",
+      "join": "加入我们"
+    },
+    "hero": {
+      "title": "Apex Racing",
+      "subtitle": "深国交赛车工程团队",
+      "description": "华南最专业的中学生RC赛车社团",
+      "cta_join": "加入我们",
+      "cta_events": "查看赛事"
+    },
+    "stats": {
+      "national_rank": "全国赛排名",
+      "motor_improvement": "电机性能提升",
+      "sponsorship": "商业赞助",
+      "core_members": "核心成员"
+    },
+    "about": {
+      "title": "关于我们",
+      "subtitle": "深国交最具专业度的赛车工程社团",
+      "description": "Apex Racing起源于深国交的RC俱乐部，由一群对赛车工程充满热情的学生组建。",
+      "story": "面对去年NSL赛事因机械故障DNF的挫折，我们没有放弃。本学期，我们通过系统性的工程改进——从电子升级到精密调校——实现了车辆稳定性的突破，最终在全国赛场获得活塞组亚军及多项单项奖。"
+    },
+    "events": {
+      "title": "赛事活动",
+      "subtitle": "记录每一次的速度对决",
+      "status": {
+        "ended": "已结束",
+        "ongoing": "进行中",
+        "upcoming": "即将开始"
+      }
+    },
+    "team": {
+      "title": "核心成员",
+      "subtitle": "每个人都是系统中不可或缺的节点",
+      "role": "团长",
+      "grade": "高三",
+      "responsibility": "竞速组负责人"
+    },
+    "contact": {
+      "title": "联系我们",
+      "location": "深国交活动室A",
+      "email": "邮箱",
+      "follow_us": "关注我们"
+    },
+    "footer": {
+      "copyright": "深国交RC赛车社团 © 2026 版权所有",
+      "credits": "设计与维护：Apex Racing 宣传组"
+    }
+  },
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "cars": "Cars",
+      "tech": "Tech",
+      "racing": "Racing",
+      "team": "Team",
+      "join": "Join Us"
+    },
+    "hero": {
+      "title": "Apex Racing",
+      "subtitle": "SCIE Racing Engineering Team",
+      "description": "South China's Premier Student RC Racing Team",
+      "cta_join": "Join Us",
+      "cta_events": "View Events"
+    },
+    "stats": {
+      "national_rank": "National Rank",
+      "motor_improvement": "Motor Performance",
+      "sponsorship": "Sponsorship",
+      "core_members": "Core Members"
+    },
+    "about": {
+      "title": "About Us",
+      "subtitle": "SCIE's Most Professional Racing Engineering Club",
+      "description": "Apex Racing originated from SCIE's RC Club, founded by students passionate about racing engineering.",
+      "story": "After a DNF at last year's NSL due to mechanical failure, we didn't give up. Through systematic engineering improvements—from electronics upgrades to precision tuning—we achieved a breakthrough in vehicle stability, ultimately winning 2nd place in the Pioneer class and multiple individual awards at the national competition."
+    },
+    "events": {
+      "title": "Events",
+      "subtitle": "Recording Every Speed Challenge",
+      "status": {
+        "ended": "Ended",
+        "ongoing": "Ongoing",
+        "upcoming": "Upcoming"
+      }
+    },
+    "team": {
+      "title": "Core Team",
+      "subtitle": "Everyone is an indispensable node in the system",
+      "role": "Team Leader",
+      "grade": "G2",
+      "responsibility": "Racing Director"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "location": "SCIE Activity Room A",
+      "email": "Email",
+      "follow_us": "Follow Us"
+    },
+    "footer": {
+      "copyright": "SCIE RC Racing Club © 2026 All Rights Reserved",
+      "credits": "Design & Maintenance: Apex Racing Media Team"
+    }
+  }
+}

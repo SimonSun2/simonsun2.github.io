@@ -744,13 +744,13 @@
                 <span class="logo-text">APEX <span>RACING</span></span>
             </a>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">首页</a></li>
-                <li><a href="about.html">关于我们</a></li>
-                <li><a href="cars/apex-04.html">赛车展示</a></li>
-                <li><a href="tech/index.html">技术中心</a></li>
-                <li><a href="racing/index.html">赛事实绩</a></li>
-                <li><a href="team.html">核心成员</a></li>
-                <li><a href="join.html" class="btn btn-primary nav-cta">加入我们</a></li>
+                <li><a href="index.html" class="active" data-i18n="nav.home">首页</a></li>
+                <li><a href="about.html" data-i18n="nav.about">关于我们</a></li>
+                <li><a href="cars/apex-04.html" data-i18n="nav.cars">赛车展示</a></li>
+                <li><a href="tech/index.html" data-i18n="nav.tech">技术中心</a></li>
+                <li><a href="racing/index.html" data-i18n="nav.racing">赛事实绩</a></li>
+                <li><a href="team.html" data-i18n="nav.team">核心成员</a></li>
+                <li><a href="join.html" class="btn btn-primary nav-cta" data-i18n="nav.join">加入我们</a></li>
             </ul>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -785,7 +785,7 @@
             <div class="hero-stats">
                 <div class="hero-stat-item">
                     <span class="hero-stat-number" data-counter data-target="2" data-prefix="#">#2</span>
-                    <span class="hero-stat-label">全国赛小组排名</span>
+                    <span class="hero-stat-label" data-i18n="stats.national_rank">全国赛排名</span>
                 </div>
                 <div class="hero-stat-item">
                     <span class="hero-stat-number" data-counter data-target="10" data-suffix="%">10%</span>
@@ -1129,6 +1129,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
