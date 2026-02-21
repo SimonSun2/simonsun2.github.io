@@ -470,6 +470,8 @@ function initLazyLoad() {
     });
 }
 
-// 控制台欢迎信息
-console.log('%cApex Racing', 'color: #D4AF37; font-size: 24px; font-weight: bold; font-family: Montserrat;');
-console.log('%cPrecision. Partnership. Perseverance.', 'color: #CCCCCC; font-size: 14px; font-style: italic;');
+// 控制台欢迎信息（仅开发环境显示）
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    console.log('%cApex Racing', 'color: #D4AF37; font-size: 24px; font-weight: bold; font-family: Montserrat;');
+    console.log('%cPrecision. Partnership. Perseverance.', 'color: #CCCCCC; font-size: 14px; font-style: italic;');
+}
